@@ -7,5 +7,6 @@ This document includes overview, setup and installation, and analysis informatio
 ## Overview
 概述
 
-Kdump uses kexec to quickly boot to a dump-capture kernel whenever a dump of the system kernel’s memory needs to be taken (for example, when the system panics). The system kernel’s memory image is preserved across the reboot and is accessible to the dump-capture kernel.
+Kdump uses kexec to quickly boot to a dump-capture kernel whenever a dump of the system kernel’s memory needs to be taken (for example, when the system panics). The system kernel’s memory image is preserved across the reboot and is accessible to the dump-capture kernel.\
 每当需要转储系统内核的内存时(例如，当系统出现错误时)，Kdump 可以使用 kexec 快速启动到转储捕获内核。系统内核的内存映像在重新启动期间被保留，并且可由转储捕获内核访问。
+
