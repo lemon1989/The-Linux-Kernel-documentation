@@ -1,7 +1,8 @@
 # Documentation for Kdump - The kexec-based Crash Dumping Solution
-Kdump 的文档 - 基于 kexec 的崩溃转储解决方案
+Kdump 的文档 - 一种基于 kexec 的崩溃转储解决方案
 
 This document includes overview, setup and installation, and analysis information.\
+
 
 ## Overview
 
