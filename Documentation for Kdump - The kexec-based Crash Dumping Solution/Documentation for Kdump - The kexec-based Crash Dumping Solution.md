@@ -19,3 +19,15 @@ Kdump 和 kexec 目前支持 x86、x86_64、ppc64、ia64、s390x、arm 和 arm64
 When the system kernel boots, it reserves a small section of memory for the dump-capture kernel. This ensures that ongoing Direct Memory Access (DMA) from the system kernel does not corrupt the dump-capture kernel. The kexec -p command loads the dump-capture kernel into this reserved memory.\
 当前系统内核启动时，它会为转储捕获内核保留一小部分内存。这可确保来自当前系统内核的持续直接内存访问（DMA）不会损坏转储捕获内核。kexec -p 命令会将转储捕获内核加载到此保留的内存中。
 
+On x86 machines, the first 640 KB of physical memory is needed to boot, regardless of where the kernel loads. Therefore, kexec backs up this region just before rebooting into the dump-capture kernel.\
+在 x86 计算机上，加载内核时需要使用前 640 KB 的物理内存。因此，kexec 在重新启动到转储捕获内核之前需要先备份此物理内存区域。
+
+Similarly on PPC64 machines first 32KB of physical memory is needed for booting regardless of where the kernel is loaded and to support 64K page size kexec backs up the first 64KB memory.\
+同样地，在 PPC64 计算机上，加载内核时需要使用前 32KB 的物理内存，并且可以支持 64K 页大小的 kexec 来备份第一个 64KB 内存。
+
+For s390x, when kdump is triggered, the crashkernel region is exchanged with the region [0, crashkernel region size] and then the kdump kernel runs in [0, crashkernel region size]. Therefore no relocatable kernel is needed for s390x.\
+对于 s390x，当触发 kdump 时，崩溃内核区域与区域 [0，崩溃内核区域大小] 进行交换，然后 kdump 内核在这个区域 {0， 崩溃内核区域大小} 运行。因此，s390x 不需要可重定向的内核。
+
+All of the necessary information about the system kernel’s core image is encoded in the ELF format, and stored in a reserved area of memory before a crash. The physical address of the start of the ELF header is passed to the dump-capture kernel through the elfcorehdr= boot parameter. Optionally the size of the ELF header can also be passed when using the elfcorehdr=[size[KMG]@]offset[KMG] syntax.\
+有关系统内核核心映像的所有必要信息都以 ELF 格式进行编码，并在崩溃前存储在保留的内存区域中。ELF 标头启动的物理地址通过 elfcorehdr= 引导参数传递到转储捕获内核。使用 elfhdr= 大小[KMG][偏移][KMG] 语法时，也可以传递 ELF 标头的大小。
+
