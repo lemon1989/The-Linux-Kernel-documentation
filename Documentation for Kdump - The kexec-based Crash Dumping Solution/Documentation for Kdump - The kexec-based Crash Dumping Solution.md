@@ -29,5 +29,10 @@ For s390x, when kdump is triggered, the crashkernel region is exchanged with the
 对于 s390x，当触发 kdump 时，崩溃内核区域与区域 [0，崩溃内核区域大小] 进行交换，然后 kdump 内核在这个区域 {0， 崩溃内核区域大小} 运行。因此，s390x 不需要可重定向的内核。
 
 All of the necessary information about the system kernel’s core image is encoded in the ELF format, and stored in a reserved area of memory before a crash. The physical address of the start of the ELF header is passed to the dump-capture kernel through the elfcorehdr= boot parameter. Optionally the size of the ELF header can also be passed when using the elfcorehdr=[size[KMG]@]offset[KMG] syntax.\
-有关系统内核核心映像的所有必要信息都以 ELF 格式进行编码，并在崩溃前存储在保留的内存区域中。ELF 标头启动的物理地址通过 elfcorehdr= 引导参数传递到转储捕获内核。使用 elfhdr= 大小[KMG][偏移][KMG] 语法时，也可以传递 ELF 标头的大小。
+系统内核的核心映像包含的所有必要信息会以 ELF 格式进行编码，并在崩溃前被存储在保留的内存区域。从 ELF 标头开始的物理地址通过 elfcorehdr= boot parameter 的形式传递给转储捕获内核。使用 elfcorehdr=[size[KMG]@]offset[KMG] 语法时，也可以传递 ELF 标头的大小。
+
+With the dump-capture kernel, you can access the memory image through /proc/vmcore. This exports the dump as an ELF-format file that you can write out using file copy commands such as cp or scp. Further, you can use analysis tools such as the GNU Debugger (GDB) and the Crash tool to debug the dump file. This method ensures that the dump pages are correctly ordered.\
+使用转储捕获内核，你可以通过 /proc/vmcore 访问内存映像。这会将转储导出为一个 ELF 格式的文件，你可以使用文件复制命令（如 cp 或 scp）将其导出。此外，你可以使用分析工具，例如，GNU 调试器 （GDB） 和 Crash 工具来调试转储文件。此方法可确保转储页有正确的排序。
+
+
 
