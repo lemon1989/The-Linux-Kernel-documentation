@@ -88,6 +88,8 @@ make
 
 make install
 
+### Build the system and dump-capture kernels
+
 
 
 
