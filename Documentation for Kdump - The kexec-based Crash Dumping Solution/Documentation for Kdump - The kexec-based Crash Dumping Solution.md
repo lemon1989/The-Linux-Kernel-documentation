@@ -63,5 +63,34 @@ There is also a gitweb interface available at [http://www.kernel.org/git/?p=util
 More information about kexec-tools can be found at [http://horms.net/projects/kexec/](http://horms.net/projects/kexec/)\
 有关 kexec-tools 工具的更多信息，请查看 http://horms.net/projects/kexec/。
 
+3.Unpack the tarball with the tar command, as follows:\
+使用以下命令解压 kexec-tools.tar.gz 包：
+
+tar xvpzf kexec-tools.tar.gz
+
+4.Change to the kexec-tools directory, as follows:\
+使用以下命令切换到 kexec-tools 目录：
+
+cd kexec-tools-VERSION
+
+5.Configure the package, as follows:\
+配置 kexec-tools-VERSION 工具包：
+
+./configure
+
+6.Compile the package, as follows:\
+编译 kexec-tools-VERSION 工具包：
+
+make
+
+7.Install the package, as follows:\
+安装 kexec-tools-VERSION 工具包：
+
+make install
+
+
+
+
+
 
 
