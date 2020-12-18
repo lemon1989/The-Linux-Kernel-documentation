@@ -58,7 +58,7 @@ The latest kexec-tools git tree is available at:\
 - [http://www.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git](http://www.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git)
 
 There is also a gitweb interface available at [http://www.kernel.org/git/?p=utils/kernel/kexec/kexec-tools.git](http://www.kernel.org/git/?p=utils/kernel/kexec/kexec-tools.git)\
-还有一个 可用的 gitweb 界面的 http://www.kernel.org/git/?p=utils/kernel/kexec/kexec-tools.git。
+还有一个 gitweb 界面的访问地址 http://www.kernel.org/git/?p=utils/kernel/kexec/kexec-tools.git。
 
 More information about kexec-tools can be found at [http://horms.net/projects/kexec/](http://horms.net/projects/kexec/)\
 有关 kexec-tools 工具的更多信息，请查看 http://horms.net/projects/kexec/。
