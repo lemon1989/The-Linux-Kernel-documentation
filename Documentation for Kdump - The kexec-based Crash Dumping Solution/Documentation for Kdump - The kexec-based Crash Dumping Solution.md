@@ -34,5 +34,11 @@ All of the necessary information about the system kernel’s core image is encod
 With the dump-capture kernel, you can access the memory image through /proc/vmcore. This exports the dump as an ELF-format file that you can write out using file copy commands such as cp or scp. Further, you can use analysis tools such as the GNU Debugger (GDB) and the Crash tool to debug the dump file. This method ensures that the dump pages are correctly ordered.\
 使用转储捕获内核，你可以通过 /proc/vmcore 访问内存映像。这会将转储导出为一个 ELF 格式的文件，你可以使用文件复制命令（如 cp 或 scp）将其导出。此外，你可以使用分析工具，例如，GNU 调试器 （GDB） 和 Crash 工具来调试转储文件。此方法可确保转储页有正确的排序。
 
+## Setup and Installation
+设置和安装
+
+### Install kexec-tools
+安装 kexec-tools
+
 
 
