@@ -43,5 +43,20 @@ With the dump-capture kernel, you can access the memory image through /proc/vmco
 1.Login as the root user.\
 以 root 用户登录。
 
+2.Download the kexec-tools user-space package from the following URL:\
+从以下 URL 地址下载 kexec-tools 工具的用户空间 package 包：
+
+[http://kernel.org/pub/linux/utils/kernel/kexec/kexec-tools.tar.gz](http://kernel.org/pub/linux/utils/kernel/kexec/kexec-tools.tar.gz)
+
+This is a symlink to the latest version.\
+这是最新版本的链接地址。
+
+The latest kexec-tools git tree is available at:\
+最新的 kexec-tools 工具的 git tree 的下载地址：
+
+- git://git.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git
+- [http://www.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git](http://www.kernel.org/pub/scm/utils/kernel/kexec/kexec-tools.git)
+
+
 
 
