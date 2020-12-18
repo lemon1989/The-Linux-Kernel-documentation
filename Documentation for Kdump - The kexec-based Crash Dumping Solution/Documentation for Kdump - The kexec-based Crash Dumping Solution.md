@@ -40,7 +40,7 @@ With the dump-capture kernel, you can access the memory image through /proc/vmco
 ### Install kexec-tools
 安装 kexec-tools
 
-1.Login as the root user.
+1.Login as the root user.\
 以 root 用户登录。
 
 
