@@ -359,7 +359,34 @@ If you are using an uncompressed Image, then use following command to load dump-
     --initrd=<initrd-for-dump-capture-kernel> \
     --append="root=<root-dev> <arch-specific-options>"
   
-  
+Please note, that –args-linux does not need to be specified for ia64. It is planned to make this a no-op on that architecture, but for now it should be omitted
+请注意，不需要为 ia64 指定 args-linux。原本计划在该体系结构上加 no-op，但现在应省略
+
+Following are the arch specific command line options to be used while loading dump-capture kernel.\
+以下是在加载转储捕获内核时要使用的架构特定命令行选项。
+
+For i386, x86_64 and ia64:
+
+    “1 irqpoll maxcpus=1 reset_devices”
+
+For ppc64:
+
+    “1 maxcpus=1 noirqdistrib reset_devices”
+
+For s390x:
+
+    “1 maxcpus=1 cgroup_disable=memory”
+
+For arm:
+
+    “1 maxcpus=1 reset_devices”
+
+For arm64:
+
+    “1 maxcpus=1 reset_devices”
+
+
+
 
 
 
