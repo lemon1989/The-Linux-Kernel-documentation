@@ -177,8 +177,13 @@ CONFIG_RELOCATABLE=y
 对"Physical address where the kernel is loaded"（在"Processor type and features"下）使用合适的值。这仅在启用"kernel crash dumps"时使用。合适的值取决于内核是否可重定位。
 
 If you are using a relocatable kernel use CONFIG_PHYSICAL_START=0x100000 This will compile the kernel for physical address 1MB, but given the fact kernel is relocatable, it can be run from any physical address hence kexec boot loader will load it in memory region reserved for dump-capture kernel.\
-如果使用可重定位捕获的内核启用 CONFIG_PHYSICAL_START=0x100000 这将编译物理地址 1MB 的内核，但事实上需考虑内核是否可重定位捕获，它可以从任何物理地址运行，因此 kexec 引导加载程序将加载它到为转储捕获内核保留的内存区域。
+如果使用可重定位捕获内核，启用 CONFIG_PHYSICAL_START=0x100000 这将编译物理地址 1MB 的内核，但事实上需考虑内核是否可重定位捕获，它可以从任何物理地址运行，因此 kexec 通过引导加载程序将加载它(可重定位捕获内核)到为转储捕获内核保留的内存区域。
 
+Otherwise it should be the start of memory region reserved for second kernel using boot parameter “crashkernel=Y@X”. Here X is start of memory region reserved for dump-capture kernel. Generally X is 16MB (0x1000000). So you can set CONFIG_PHYSICAL_START=0x1000000\
+否则，它应该是使用引导参数"crashkernel=Y@X"为第二个内核保留的内存区域的开始。此处 X 是为转储捕获内核保留的内存区域的开始。通常 X 为 16MB（0x1000000）。因此，你可以设置CONFIG_PHYSICAL_START=0x1000000
+
+5.Make and install the kernel and its modules. DO NOT add this kernel to the boot loader configuration files.\
+制作并安装内核及其模块。不要将此内核添加到引导加载程序配置文件中。
 
 ## Extended crashkernel syntax
 
