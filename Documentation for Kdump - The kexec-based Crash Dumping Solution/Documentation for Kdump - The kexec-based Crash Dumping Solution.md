@@ -276,10 +276,10 @@ On x86 and x86_64, use “crashkernel=64M@16M”.
 On ppc64, use “crashkernel=128M@32M”.
 
 On ia64, 256M@256M is a generous value that typically works. The region may be automatically placed on ia64, see the dump-capture kernel config option notes above. If use sparse memory, the size should be rounded to GRANULE boundaries.\
-在 ia64 上，256M@256M是一种通常有效的慷慨价值。区域可能自动放置在 ia64 上，请参阅上面的转储捕获内核配置选项注释。如果使用稀疏内存，则大小应四舍五入到 GRANULE 边界。
+在 ia64 上，256M@256M是一个有效的通用值。该区域可能自动放置在 ia64 上，请参阅上面的转储捕获内核配置选项注释。如果使用稀疏内存，则大小应四舍五入到 GRANULE 边界。
 
 On s390x, typically use “crashkernel=xxM”. The value of xx is dependent on the memory consumption of the kdump system. In general this is not dependent on the memory size of the production system.\
-在 s390x 上，通常使用"crashkernel=xxM"。xx 的值取决于 kdump 系统的内存消耗。通常，这不依赖于生产系统的内存大小。
+在 s390x 上，通常使用"crashkernel=xxM"。xx 的值取决于 kdump 系统的内存消耗。通常，这不依赖于当前系统的内存大小。
 
 On arm, the use of “crashkernel=Y@X” is no longer necessary; the kernel will automatically locate the crash kernel image within the first 512MB of RAM if X is not given.\
 在arm上，不再需要使用"Y@X";如果未提供 X，内核将自动定位前 512MB RAM 中的 crash kernel 映像。
