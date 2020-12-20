@@ -66,27 +66,27 @@ More information about kexec-tools can be found at [http://horms.net/projects/ke
 3.Unpack the tarball with the tar command, as follows:\
 使用以下命令解压 kexec-tools.tar.gz 包：
 
-tar xvpzf kexec-tools.tar.gz
+    tar xvpzf kexec-tools.tar.gz
 
 4.Change to the kexec-tools directory, as follows:\
 使用以下命令切换到 kexec-tools 目录：
 
-cd kexec-tools-VERSION
+    cd kexec-tools-VERSION
 
 5.Configure the package, as follows:\
 配置 kexec-tools-VERSION 工具包：
 
-./configure
+    ./configure
 
 6.Compile the package, as follows:\
 编译 kexec-tools-VERSION 工具包：
 
-make
+    make
 
 7.Install the package, as follows:\
 安装 kexec-tools-VERSION 工具包：
 
-make install
+    make install
 
 ### Build the system and dump-capture kernels
 构建系统和转储捕获内核
@@ -112,22 +112,22 @@ Following are the configuration setting required for system and dump-capture ker
 1.Enable “kexec system call” in “Processor type and features.”:\
 在"Processor type and features."中启用"kexec 系统调用"：
 
-CONFIG_KEXEC=y
+    CONFIG_KEXEC=y
 
 2.Enable “sysfs file system support” in “Filesystem” -> “Pseudo filesystems.” This is usually enabled by default:\
 在"Filesystem"->"Pseudo filesystems"中启用"sysfs file system support"。默认情况下，这通常启用：
 
-CONFIG_SYSFS=y
+    CONFIG_SYSFS=y
 
 Note that “sysfs file system support” might not appear in the “Pseudo filesystems” menu if “Configure standard kernel features (for small systems)” is not enabled in “General Setup.” In this case, check the .config file itself to ensure that sysfs is turned on, as follows:\
 请注意，如果在"General Setup."中未启用"Configure standard kernel features (for small systems)"，则"Pseudo filesystems"菜单中可能不会显示"sysfs file system support"。在这种情况下，请检查 .config 文件本身以确保 sysfs 已打开，如下所示：
 
-grep 'CONFIG_SYSFS' .config
+    grep 'CONFIG_SYSFS' .config
 
 3.Enable “Compile the kernel with debug info” in “Kernel hacking.”:\
 在"Kernel hacking."中启用"Compile the kernel with debug info"：
 
-CONFIG_DEBUG_INFO=Y
+    CONFIG_DEBUG_INFO=Y
 
 This causes the kernel to be built with debug symbols. The dump analysis tools require a vmlinux with debug symbols in order to read and analyze a dump file.\
 这会使内核生成调试符号。转储分析工具需要具有调试符号的 vmlinux 才能读取和分析转储文件。
@@ -138,12 +138,12 @@ This causes the kernel to be built with debug symbols. The dump analysis tools r
 1.Enable “kernel crash dumps” support under “Processor type and features”:\
 在"Processor type and features"下启用"kernel crash dumps"支持：
 
-CONFIG_CRASH_DUMP=y
+    CONFIG_CRASH_DUMP=y
 
 2.Enable “/proc/vmcore support” under “Filesystems” -> “Pseudo filesystems”:\
 在"Filesystems" -> "Pseudo filesystems"下启用"/proc/vmcore 支持"，：
 
-CONFIG_PROC_VMCORE=y
+    CONFIG_PROC_VMCORE=y
 
 (CONFIG_PROC_VMCORE is set by default when CONFIG_CRASH_DUMP is selected.)\
 CONFIG_PROC_VMCORE 启用时，将默认启用 CONFIG_CRASH_DUMP。
@@ -154,16 +154,16 @@ CONFIG_PROC_VMCORE 启用时，将默认启用 CONFIG_CRASH_DUMP。
 1.On i386, enable high memory support under “Processor type and features”:\
 在 i386 上，在"Processor type and features"下启用高内存支持：
 
-CONFIG_HIGHMEM64G=y
+    CONFIG_HIGHMEM64G=y
 
 or:
 
-CONFIG_HIGHMEM4G
+    CONFIG_HIGHMEM4G
 
 2.On i386 and x86_64, disable symmetric multi-processing support under “Processor type and features”:\
 在 i386 和 x86_64，禁用"Processor type and features"下的对称多处理支持：
 
-CONFIG_SMP=n
+    CONFIG_SMP=n
 
 (If CONFIG_SMP=y, then specify maxcpus=1 on the kernel command line when loading the dump-capture kernel, see section “Load the Dump-capture Kernel”.)\
 如果 CONFIG_SMP=y，则在加载转储捕获内核时在内核命令行上指定 maxcpus=1，请参阅"加载转储捕获内核"一节。
@@ -171,7 +171,7 @@ CONFIG_SMP=n
 3.If one wants to build and use a relocatable kernel, Enable “Build a relocatable kernel” support under “Processor type and features”:\
 如果要构建和使用可重定位内核，请启用"Processor type and features"下的"Build a relocatable kernel"支持：
 
-CONFIG_RELOCATABLE=y
+    CONFIG_RELOCATABLE=y
 
 4.Use a suitable value for “Physical address where the kernel is loaded” (under “Processor type and features”). This only appears when “kernel crash dumps” is enabled. A suitable value depends upon whether kernel is relocatable or not.\
 对"Physical address where the kernel is loaded"（在"Processor type and features"下）使用合适的值。这仅在启用"kernel crash dumps"时使用。合适的值取决于内核是否可重定位。
@@ -191,12 +191,12 @@ Otherwise it should be the start of memory region reserved for second kernel usi
 1.Enable “Build a kdump crash kernel” support under “Kernel” options:\
 在"Kernel"选项下启用"Build a kdump crash kernel"支持：
 
-CONFIG_CRASH_DUMP=y
+    CONFIG_CRASH_DUMP=y
 
 2.Enable “Build a relocatable kernel” support:\
 启用"Build a relocatable kernel"支持：
 
-CONFIG_RELOCATABLE=y
+    CONFIG_RELOCATABLE=y
 
 Make and install the kernel and its modules.\
 制作并安装内核及其模块。
@@ -210,11 +210,11 @@ Make and install the kernel and its modules.\
 The crashkernel region can be automatically placed by the system kernel at run time. This is done by specifying the base address as 0, or omitting it all together:\
 崩溃内核区域可以在运行时由系统内核自动放置。这是通过将基地址指定为 0 或同时省略地址来完成的：
 
-crashkernel=256M@0
+    crashkernel=256M@0
 
 or:
 
-crashkernel=256M
+    crashkernel=256M
 
 If the start address is specified, note that the start address of the kernel will be aligned to 64Mb, so if the start address is not then any space below the alignment point will be wasted.\
 如果指定了开始地址，请注意内核的开始地址将对齐到 64Mb，因此，如果开始地址不是，则对齐点下面的任何空间都将被浪费。
@@ -225,7 +225,7 @@ If the start address is specified, note that the start address of the kernel wil
 - To use a relocatable kernel, Enable “AUTO_ZRELADDR” support under “Boot” options:\
 要使用可重定位内核，启用"Boot"选项下的"AUTO_ZRELADDR"支持：
 
-AUTO_ZRELADDR=y
+    AUTO_ZRELADDR=y
 
 ### Dump-capture kernel config options (Arch Dependent, arm64)
 转储捕获内核配置选项（与架构有关，arm64）
@@ -242,13 +242,13 @@ While the “crashkernel=size[@offset]” syntax is sufficient for most configur
 The syntax is:\
 语法：
 
-crashkernel=<range1>:<size1>[,<range2>:<size2>,...][@offset]
-range=start-[end]
+    crashkernel=<range1>:<size1>[,<range2>:<size2>,...][@offset]
+    range=start-[end]
 
 For example:\
 例如：
 
-crashkernel=512M-2G:64M,2G-:128M
+    crashkernel=512M-2G:64M,2G-:128M
 
 This would mean:\
 这意味着：
