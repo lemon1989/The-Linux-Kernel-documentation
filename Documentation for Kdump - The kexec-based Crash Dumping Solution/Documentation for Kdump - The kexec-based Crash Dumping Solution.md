@@ -26,7 +26,7 @@ Similarly on PPC64 machines first 32KB of physical memory is needed for booting 
 同样地，在 PPC64 计算机上，加载内核时需要使用前 32KB 的物理内存，并且可以支持 64K 页大小的 kexec 来备份第一个 64KB 内存。
 
 For s390x, when kdump is triggered, the crashkernel region is exchanged with the region [0, crashkernel region size] and then the kdump kernel runs in [0, crashkernel region size]. Therefore no relocatable kernel is needed for s390x.\
-对于 s390x，当触发 kdump 时，崩溃内核区域与区域 [0，崩溃内核区域大小] 进行交换，然后 kdump 内核在这个区域 {0， 崩溃内核区域大小} 运行。因此，s390x 不需要可重定向的内核。
+对于 s390x，当触发 kdump 时，崩溃内核区域与区域 [0，崩溃内核区域大小] 进行交换，然后 kdump 内核在这个区域 {0， 崩溃内核区域大小} 运行。因此，s390x 不需要可重定位的内核。
 
 All of the necessary information about the system kernel’s core image is encoded in the ELF format, and stored in a reserved area of memory before a crash. The physical address of the start of the ELF header is passed to the dump-capture kernel through the elfcorehdr= boot parameter. Optionally the size of the ELF header can also be passed when using the elfcorehdr=[size[KMG]@]offset[KMG] syntax.\
 系统内核的核心映像包含的所有必要信息会以 ELF 格式进行编码，并在崩溃前被存储在保留的内存区域。从 ELF 标头开始的物理地址通过 elfcorehdr= boot parameter 的形式传递给转储捕获内核。使用 elfcorehdr=[size[KMG]@]offset[KMG] 语法时，也可以传递 ELF 标头的大小。
@@ -92,8 +92,21 @@ make install
 构建系统和转储捕获内核
 
 There are two possible methods of using Kdump.\
-使用 Kdump 有两种可用的方法。
+使用 Kdump 有两种方法。
 
+1.Build a separate custom dump-capture kernel for capturing the kernel core dump.\
+构建单独的自定义转储捕获内核，用于捕获内核核心转储。
+
+2.Or use the system kernel binary itself as dump-capture kernel and there is no need to build a separate dump-capture kernel. This is possible only with the architectures which support a relocatable kernel. As of today, i386, x86_64, ppc64, ia64, arm and arm64 architectures support relocatable kernel.\
+或者使用系统内核二进制文件本身作为转储捕获内核，无需构建单独的转储捕获内核。这只有在支持可重定位内核的体系结构下才可能实现。截至今天，i386、x86_64、ppc64、ia64、arm 和 arm64 架构支持可重定位内核。
+
+Building a relocatable kernel is advantageous from the point of view that one does not have to build a second kernel for capturing the dump. But at the same time one might want to build a custom dump capture kernel suitable to his needs.\
+构建可重定位内核是有利的，因为不必构建第二个内核来捕获转储。但与此同时，人们可能想要构建一个适合其需要的自定义转储捕获内核。
+
+Following are the configuration setting required for system and dump-capture kernels for enabling kdump support.\
+以下是系统和转储捕获内核启用 kdump 支持所需的配置设置。
+
+### System kernel config options
 
 ## Extended crashkernel syntax
 
