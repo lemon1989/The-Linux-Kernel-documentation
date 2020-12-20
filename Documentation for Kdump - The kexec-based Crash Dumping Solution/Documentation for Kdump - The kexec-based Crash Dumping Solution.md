@@ -107,6 +107,22 @@ Following are the configuration setting required for system and dump-capture ker
 以下是系统和转储捕获内核启用 kdump 支持所需的配置设置。
 
 ### System kernel config options
+系统内核配置选项
+
+1.Enable “kexec system call” in “Processor type and features.”:\
+在"Processor type and features."中启用"kexec 系统调用"：
+
+CONFIG_KEXEC=y
+
+2.Enable “sysfs file system support” in “Filesystem” -> “Pseudo filesystems.” This is usually enabled by default:\
+在"Filesystem"中启用"sysfs file system support"->"Pseudo filesystems."。默认情况下，这通常启用：
+
+CONFIG_SYSFS=y
+
+Note that “sysfs file system support” might not appear in the “Pseudo filesystems” menu if “Configure standard kernel features (for small systems)” is not enabled in “General Setup.” In this case, check the .config file itself to ensure that sysfs is turned on, as follows:\
+请注意，如果在"General Setup."中未启用"Configure standard kernel features (for small systems)"，则"Pseudo filesystems"菜单中可能不会显示"sysfs file system support"。在这种情况下，请检查 .config 文件本身以确保系统已打开，如下所示：
+
+grep 'CONFIG_SYSFS' .config
 
 ## Extended crashkernel syntax
 
