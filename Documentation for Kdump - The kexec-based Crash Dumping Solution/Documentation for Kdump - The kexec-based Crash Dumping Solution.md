@@ -146,7 +146,7 @@ CONFIG_CRASH_DUMP=y
 CONFIG_PROC_VMCORE=y
 
 (CONFIG_PROC_VMCORE is set by default when CONFIG_CRASH_DUMP is selected.)\
-CONFIG_PROC_VMCORE 启动时，将默认启动 CONFIG_CRASH_DUMP 设置。
+CONFIG_PROC_VMCORE 启用时，将默认启用 CONFIG_CRASH_DUMP。
 
 ### Dump-capture kernel config options (Arch Dependent, i386 and x86_64)
 
