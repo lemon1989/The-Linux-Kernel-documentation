@@ -231,7 +231,7 @@ AUTO_ZRELADDR=y
 转储捕获内核配置选项（与架构有关，arm64）
 
 - Please note that kvm of the dump-capture kernel will not be enabled on non-VHE systems even if it is configured. This is because the CPU will not be reset to EL2 on panic.\
-请注意，转储捕获内核的 kvm 不会在 non-VHE 系统上启用，即使它已配置。这是因为 CPU 不会在出错时重置为 EL2。
+请注意，转储捕获内核的 kvm 不会在 non-VHE 系统上起作用，即使它被配置。这是因为 CPU 不会在出错时重置为 EL2。
 
 ## Extended crashkernel syntax
 
