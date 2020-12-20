@@ -185,6 +185,22 @@ Otherwise it should be the start of memory region reserved for second kernel usi
 5.Make and install the kernel and its modules. DO NOT add this kernel to the boot loader configuration files.\
 制作并安装内核及其模块。不要将此内核添加到引导加载程序配置文件中。
 
+### Dump-capture kernel config options (Arch Dependent, ppc64)
+转储捕获内核配置选项（与架构有关，ppc64）
+
+1.Enable “Build a kdump crash kernel” support under “Kernel” options:\
+在"Kernel"选项下启用"Build a kdump crash kernel"支持：
+
+CONFIG_CRASH_DUMP=y
+
+2.Enable “Build a relocatable kernel” support:\
+启用"Build a relocatable kernel"支持：
+
+CONFIG_RELOCATABLE=y
+
+Make and install the kernel and its modules.\
+制作并安装内核及其模块。
+
 ## Extended crashkernel syntax
 
 
