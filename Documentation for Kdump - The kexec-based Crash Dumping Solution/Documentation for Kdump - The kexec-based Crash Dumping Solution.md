@@ -282,7 +282,7 @@ On s390x, typically use “crashkernel=xxM”. The value of xx is dependent on t
 在 s390x 上，通常使用"crashkernel=xxM"。xx 的值取决于 kdump 系统的内存消耗。通常，这不依赖于当前系统的内存大小。
 
 On arm, the use of “crashkernel=Y@X” is no longer necessary; the kernel will automatically locate the crash kernel image within the first 512MB of RAM if X is not given.\
-在arm上，不再需要使用"Y@X";如果未提供 X，内核将自动定位前 512MB RAM 中的 crash kernel 映像。
+在 arm 上，不再需要使用"Y@X";如果未提供 X，内核将自动定位前 512MB RAM 中的 crash kernel 映像。
 
 On arm64, use “crashkernel=Y[@X]”. Note that the start address of the kernel, X if explicitly specified, must be aligned to 2MiB (0x200000).\
 在 arm64 上，使用"crashkernel=Y[@X]"。请注意，内核的启动地址 X（如果显式指定）必须与 2MiB （0x200000） 对齐。
