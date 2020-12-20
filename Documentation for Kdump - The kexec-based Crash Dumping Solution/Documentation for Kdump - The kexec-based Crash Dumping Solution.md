@@ -89,8 +89,13 @@ make
 make install
 
 ### Build the system and dump-capture kernels
+构建系统和转储捕获内核
+
+There are two possible methods of using Kdump.\
+使用 Kdump 有两种可用的方法。
 
 
+## Extended crashkernel syntax
 
 
 
