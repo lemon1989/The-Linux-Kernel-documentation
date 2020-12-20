@@ -385,6 +385,9 @@ For arm64:
 
     “1 maxcpus=1 reset_devices”
 
+Notes on loading the dump-capture kernel:\
+加载转储捕获内核的注意事项：
+
 
 
 
