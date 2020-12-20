@@ -308,27 +308,27 @@ For i386 and x86_64:\
 For ppc64:\
 对于 ppc64:
 
-        Use vmlinux
+- Use vmlinux
 
 For ia64:\
 对于 ia64:
 
-        Use vmlinux or vmlinuz.gz
+- Use vmlinux or vmlinuz.gz
 
 For s390x:\
 对于 s390x:
 
-        Use image or bzImage
+- Use image or bzImage
 
 For arm:\
 对于 arm:
 
-        Use zImage
+- Use zImage
 
 For arm64:\
 对于 arm64:
 
-        Use vmlinux or Image
+- Use vmlinux or Image
 
 If you are using an uncompressed vmlinux image then use following command to load dump-capture kernel:\
 如果使用未压缩的 vmlinux 映像，请使用以下命令加载转储捕获内核：
