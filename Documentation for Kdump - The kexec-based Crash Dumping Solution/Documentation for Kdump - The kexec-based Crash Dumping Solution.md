@@ -149,7 +149,24 @@ CONFIG_PROC_VMCORE=y
 CONFIG_PROC_VMCORE 启用时，将默认启用 CONFIG_CRASH_DUMP。
 
 ### Dump-capture kernel config options (Arch Dependent, i386 and x86_64)
+转储捕获内核配置选项（与架构有关，i386 和x86_64）
 
+1.On i386, enable high memory support under “Processor type and features”:\
+在 i386 上，在"Processor type and features"下启用高内存支持：
+
+CONFIG_HIGHMEM64G=y
+
+or:
+
+CONFIG_HIGHMEM4G
+
+2.On i386 and x86_64, disable symmetric multi-processing support under “Processor type and features”:\
+在 i386 和 x86_64，禁用"Processor type and features"下的对称多处理支持：
+
+CONFIG_SMP=n
+
+(If CONFIG_SMP=y, then specify maxcpus=1 on the kernel command line when loading the dump-capture kernel, see section “Load the Dump-capture Kernel”.)\
+CONFIG_SMP=y，则在加载转储捕获内核时在内核命令行上指定 maxcpus=1，请参阅"加载转储捕获内核"一节。
 
 ## Extended crashkernel syntax
 
