@@ -265,7 +265,7 @@ This would mean:\
 ## Boot into System Kernel
 引导到系统内核
 
-1.pdate the boot loader (such as grub, yaboot, or lilo) configuration files as necessary.\
+1.Update the boot loader (such as grub, yaboot, or lilo) configuration files as necessary.\
 需要更新引导加载程序（例如 grub、yaboot 或 lilo）配置文件。
 
 
