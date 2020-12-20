@@ -216,7 +216,7 @@ or:
 
 crashkernel=256M
 
-If the start address is specified, note that the start address of the kernel will be aligned to 64Mb, so if the start address is not then any space below the alignment point will be wasted.
+If the start address is specified, note that the start address of the kernel will be aligned to 64Mb, so if the start address is not then any space below the alignment point will be wasted.\
 如果指定了开始地址，请注意内核的开始地址将对齐到 64Mb，因此，如果开始地址不是，则对齐点下面的任何空间都将被浪费。
 
 ### Dump-capture kernel config options (Arch Dependent, arm)
