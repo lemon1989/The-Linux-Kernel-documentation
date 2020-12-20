@@ -289,3 +289,21 @@ On arm64, use “crashkernel=Y[@X]”. Note that the start address of the kernel
 
 ## Load the Dump-capture Kernel
 加载转储捕获内核
+
+After booting to the system kernel, dump-capture kernel needs to be loaded.\
+引导到系统内核后，需要加载转储捕获内核。
+
+Based on the architecture and type of image (relocatable or not), one can choose to load the uncompressed vmlinux or compressed bzImage/vmlinuz of dump-capture kernel. Following is the summary.\
+根据映像的体系结构和类型（可重定位与否），可以选择加载转储捕获内核的未压缩的 vmlinux 或压缩的 bzImage/vmlinuz。以下是摘要。
+
+For i386 and x86_64:\
+对于 i386 和 x86_64：
+
+-       Use vmlinux if kernel is not relocatable.\
+如果内核不可重定位，请使用 vmlinux。
+
+-       Use bzImage/vmlinuz if kernel is relocatable.\
+如果内核可重定位，请使用 bzImage/vmlinuz。
+
+
+
