@@ -305,5 +305,62 @@ For i386 and x86_64:\
 - Use bzImage/vmlinuz if kernel is relocatable.\
 如果内核可重定位，请使用 bzImage/vmlinuz。
 
+For ppc64:\
+对于 ppc64:
+
+        Use vmlinux
+
+For ia64:\
+对于 ia64:
+
+        Use vmlinux or vmlinuz.gz
+
+For s390x:\
+对于 s390x:
+
+        Use image or bzImage
+
+For arm:\
+对于 arm:
+
+        Use zImage
+
+For arm64:\
+对于 arm64:
+
+        Use vmlinux or Image
+
+If you are using an uncompressed vmlinux image then use following command to load dump-capture kernel:\
+如果使用未压缩的 vmlinux 映像，请使用以下命令加载转储捕获内核：
+
+kexec -p <dump-capture-kernel-vmlinux-image> \
+--initrd=<initrd-for-dump-capture-kernel> --args-linux \
+--append="root=<root-dev> <arch-specific-options>"
+
+If you are using a compressed bzImage/vmlinuz, then use following command to load dump-capture kernel:\
+如果使用压缩 bzImage/vmlinuz，请使用以下命令加载转储捕获内核：
+
+kexec -p <dump-capture-kernel-bzImage> \
+--initrd=<initrd-for-dump-capture-kernel> \
+--append="root=<root-dev> <arch-specific-options>"
+
+If you are using a compressed zImage, then use following command to load dump-capture kernel:\
+如果使用压缩 zImage，请使用以下命令加载转储捕获内核：
+
+kexec --type zImage -p <dump-capture-kernel-bzImage> \
+--initrd=<initrd-for-dump-capture-kernel> \
+--dtb=<dtb-for-dump-capture-kernel> \
+--append="root=<root-dev> <arch-specific-options>"
+
+If you are using an uncompressed Image, then use following command to load dump-capture kernel:\
+如果使用未压缩映像，请使用以下命令加载转储捕获内核：
+
+kexec -p <dump-capture-kernel-Image> \
+--initrd=<initrd-for-dump-capture-kernel> \
+--append="root=<root-dev> <arch-specific-options>"
+  
+  
+
+
 
 
