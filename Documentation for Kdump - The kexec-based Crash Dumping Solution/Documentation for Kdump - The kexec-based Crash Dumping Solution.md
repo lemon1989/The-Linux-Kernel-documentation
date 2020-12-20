@@ -234,8 +234,39 @@ AUTO_ZRELADDR=y
 请注意，转储捕获内核的 kvm 不会在 non-VHE 系统上起作用，即使它被配置。这是因为 CPU 不会在出错时重置为 EL2。
 
 ## Extended crashkernel syntax
+扩展的 crashkernel 语法
 
+While the “crashkernel=size[@offset]” syntax is sufficient for most configurations, sometimes it’s handy to have the reserved memory dependent on the value of System RAM – that’s mostly for distributors that pre-setup the kernel command line to avoid a unbootable system after some memory has been removed from the machine.\
+虽然"crashkernel=size=@offset"语法对于大多数配置来说已经足够了，但有时保留内存依赖于 System RAM 的值是很方便的，这主要是对于预先设置内核命令行以避免从计算机中删除某些内存后无法启动的系统分发服务器。
 
+The syntax is:\
+语法：
+
+crashkernel=<range1>:<size1>[,<range2>:<size2>,...][@offset]
+range=start-[end]
+
+For example:\
+例如：
+
+crashkernel=512M-2G:64M,2G-:128M
+
+This would mean:\
+这意味着：
+
+1.if the RAM is smaller than 512M, then don’t reserve anything (this is the “rescue” case)\
+如果 RAM 小于 512M，则不要保留任何内容（这是"rescue"案例）
+
+2.if the RAM size is between 512M and 2G (exclusive), then reserve 64M\
+如果 RAM 大小介于 512M 和 2G（独有的）之间，则保留 64M
+
+3.if the RAM size is larger than 2G, then reserve 128M\
+如果 RAM 大小大于 2G，则保留 128M
+
+## Boot into System Kernel
+引导到系统内核
+
+1.pdate the boot loader (such as grub, yaboot, or lilo) configuration files as necessary.\
+需要更新引导加载程序（例如 grub、yaboot 或 lilo）配置文件。
 
 
 
