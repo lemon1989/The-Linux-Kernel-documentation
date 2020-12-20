@@ -166,7 +166,19 @@ CONFIG_HIGHMEM4G
 CONFIG_SMP=n
 
 (If CONFIG_SMP=y, then specify maxcpus=1 on the kernel command line when loading the dump-capture kernel, see section “Load the Dump-capture Kernel”.)\
-CONFIG_SMP=y，则在加载转储捕获内核时在内核命令行上指定 maxcpus=1，请参阅"加载转储捕获内核"一节。
+如果 CONFIG_SMP=y，则在加载转储捕获内核时在内核命令行上指定 maxcpus=1，请参阅"加载转储捕获内核"一节。
+
+3.If one wants to build and use a relocatable kernel, Enable “Build a relocatable kernel” support under “Processor type and features”:\
+如果要构建和使用可重定位内核，请启用"Processor type and features"下的"Build a relocatable kernel"支持：
+
+CONFIG_RELOCATABLE=y
+
+4.Use a suitable value for “Physical address where the kernel is loaded” (under “Processor type and features”). This only appears when “kernel crash dumps” is enabled. A suitable value depends upon whether kernel is relocatable or not.\
+对"Physical address where the kernel is loaded"（在"Processor type and features"下）使用合适的值。这仅在启用"kernel crash dumps"时出现。合适的值取决于内核是否可重定位。
+
+If you are using a relocatable kernel use CONFIG_PHYSICAL_START=0x100000 This will compile the kernel for physical address 1MB, but given the fact kernel is relocatable, it can be run from any physical address hence kexec boot loader will load it in memory region reserved for dump-capture kernel.\
+如果使用可重定位捕获的内核启用 CONFIG_PHYSICAL_START=0x100000 这将编译物理地址 1MB 的内核，但事实上需考虑内核是否可重定位捕获，它可以从任何物理地址运行，因此 kexec 引导加载程序将加载它到为转储捕获内核保留的内存区域。
+
 
 ## Extended crashkernel syntax
 
