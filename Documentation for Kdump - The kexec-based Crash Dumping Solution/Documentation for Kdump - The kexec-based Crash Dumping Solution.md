@@ -389,7 +389,7 @@ Notes on loading the dump-capture kernel:\
 加载转储捕获内核的注意事项：
 
 - By default, the ELF headers are stored in ELF64 format to support systems with more than 4GB memory. On i386, kexec automatically checks if the physical RAM size exceeds the 4 GB limit and if not, uses ELF32. So, on non-PAE systems, ELF32 is always used.\
-默认情况下，ELF 标头以 ELF64 格式存储，以支持内存超过 4GB 的系统。在 i386 上，kexec 会自动检查物理 RAM 大小是否超过 4 GB 限制，如果没有，则使用 ELF32。因此，在非 PAE 系统上，始终使用 ELF32。
+默认情况下，ELF 标头以 ELF64 格式存储，以支持内存超过 4GB 的系统。在 i386 上，kexec 会自动检查物理 RAM 大小是否超过 4 GB 限制，如果没有，则使用 ELF32。因此，在 non-PAE 系统上，始终使用 ELF32。
 
 
 
