@@ -133,6 +133,22 @@ This causes the kernel to be built with debug symbols. The dump analysis tools r
 这会使内核生成调试符号。转储分析工具需要具有调试符号的 vmlinux 才能读取和分析转储文件。
 
 ### Dump-capture kernel config options (Arch Independent)
+转储捕获内核配置选项（无关与架构）
+
+1.Enable “kernel crash dumps” support under “Processor type and features”:\
+在"Processor type and features"下启用"kernel crash dumps"支持：
+
+CONFIG_CRASH_DUMP=y
+
+2.Enable “/proc/vmcore support” under “Filesystems” -> “Pseudo filesystems”:\
+在"Filesystems" -> "Pseudo filesystems"下启用"/proc/vmcore 支持"，：
+
+CONFIG_PROC_VMCORE=y
+
+(CONFIG_PROC_VMCORE is set by default when CONFIG_CRASH_DUMP is selected.)\
+CONFIG_PROC_VMCORE 启动时，将默认启动 CONFIG_CRASH_DUMP 设置。
+
+### Dump-capture kernel config options (Arch Dependent, i386 and x86_64)
 
 
 ## Extended crashkernel syntax
