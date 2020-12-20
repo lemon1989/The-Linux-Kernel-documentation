@@ -201,6 +201,25 @@ CONFIG_RELOCATABLE=y
 Make and install the kernel and its modules.\
 制作并安装内核及其模块。
 
+### Dump-capture kernel config options (Arch Dependent, ia64)
+转储捕获内核配置选项（与架构有关，ia64）
+
+- No specific options are required to create a dump-capture kernel for ia64, other than those specified in the arch independent section above. This means that it is possible to use the system kernel as a dump-capture kernel if desired.\
+除了上面的与架构有关的部分中指定的内核外，无需为 ia64 创建转储捕获内核所需的特定选项。这意味着，可以使用系统内核作为转储捕获内核。
+
+The crashkernel region can be automatically placed by the system kernel at run time. This is done by specifying the base address as 0, or omitting it all together:\
+崩溃内核区域可以在运行时由系统内核自动放置。这是通过将基地址指定为 0 或同时省略所有地址来完成的：
+
+crashkernel=256M@0
+
+or:
+
+crashkernel=256M
+
+If the start address is specified, note that the start address of the kernel will be aligned to 64Mb, so if the start address is not then any space below the alignment point will be wasted.
+如果指定了开始地址，请注意内核的开始地址将对齐到 64Mb，因此，如果开始地址不是，则对齐点下面的任何空间都将被浪费。
+
+
 ## Extended crashkernel syntax
 
 
