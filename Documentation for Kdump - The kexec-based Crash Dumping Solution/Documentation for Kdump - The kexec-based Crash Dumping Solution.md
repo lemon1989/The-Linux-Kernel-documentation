@@ -268,5 +268,24 @@ This would mean:\
 1.Update the boot loader (such as grub, yaboot, or lilo) configuration files as necessary.\
 需要更新引导加载程序（例如 grub、yaboot 或 lilo）配置文件。
 
+2.Boot the system kernel with the boot parameter “crashkernel=Y@X”, where Y specifies how much memory to reserve for the dump-capture kernel and X specifies the beginning of this reserved memory. For example, “crashkernel=64M@16M” tells the system kernel to reserve 64 MB of memory starting at physical address 0x01000000 (16MB) for the dump-capture kernel.\
+使用引导参数"crashkernel=Y@X"启动系统内核，其中 Y 指定为转储捕获内核保留多少内存，X 指定此保留内存的开头。例如，"crashkernel=64M@16M"告诉系统内核从转储捕获内核的物理地址 0x01000000 （16MB） 开始保留 64 MB 的内存。
 
+On x86 and x86_64, use “crashkernel=64M@16M”.
 
+On ppc64, use “crashkernel=128M@32M”.
+
+On ia64, 256M@256M is a generous value that typically works. The region may be automatically placed on ia64, see the dump-capture kernel config option notes above. If use sparse memory, the size should be rounded to GRANULE boundaries.\
+在 ia64 上，256M@256M是一种通常有效的慷慨价值。区域可能自动放置在 ia64 上，请参阅上面的转储捕获内核配置选项注释。如果使用稀疏内存，则大小应四舍五入到 GRANULE 边界。
+
+On s390x, typically use “crashkernel=xxM”. The value of xx is dependent on the memory consumption of the kdump system. In general this is not dependent on the memory size of the production system.\
+在 s390x 上，通常使用"crashkernel=xxM"。xx 的值取决于 kdump 系统的内存消耗。通常，这不依赖于生产系统的内存大小。
+
+On arm, the use of “crashkernel=Y@X” is no longer necessary; the kernel will automatically locate the crash kernel image within the first 512MB of RAM if X is not given.\
+在arm上，不再需要使用"Y@X";如果未提供 X，内核将自动定位前 512MB RAM 中的 crash kernel 映像。
+
+On arm64, use “crashkernel=Y[@X]”. Note that the start address of the kernel, X if explicitly specified, must be aligned to 2MiB (0x200000).\
+在 arm64 上，使用"crashkernel=Y[@X]"。请注意，内核的启动地址 X（如果显式指定）必须与 2MiB （0x200000） 对齐。
+
+## Load the Dump-capture Kernel
+加载转储捕获内核
