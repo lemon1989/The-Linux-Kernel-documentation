@@ -115,14 +115,25 @@ Following are the configuration setting required for system and dump-capture ker
 CONFIG_KEXEC=y
 
 2.Enable “sysfs file system support” in “Filesystem” -> “Pseudo filesystems.” This is usually enabled by default:\
-在"Filesystem"中启用"sysfs file system support"->"Pseudo filesystems."。默认情况下，这通常启用：
+在"Filesystem"->"Pseudo filesystems"中启用"sysfs file system support"。默认情况下，这通常启用：
 
 CONFIG_SYSFS=y
 
 Note that “sysfs file system support” might not appear in the “Pseudo filesystems” menu if “Configure standard kernel features (for small systems)” is not enabled in “General Setup.” In this case, check the .config file itself to ensure that sysfs is turned on, as follows:\
-请注意，如果在"General Setup."中未启用"Configure standard kernel features (for small systems)"，则"Pseudo filesystems"菜单中可能不会显示"sysfs file system support"。在这种情况下，请检查 .config 文件本身以确保系统已打开，如下所示：
+请注意，如果在"General Setup."中未启用"Configure standard kernel features (for small systems)"，则"Pseudo filesystems"菜单中可能不会显示"sysfs file system support"。在这种情况下，请检查 .config 文件本身以确保 sysfs 已打开，如下所示：
 
 grep 'CONFIG_SYSFS' .config
+
+3.Enable “Compile the kernel with debug info” in “Kernel hacking.”:\
+在"Kernel hacking."中启用"Compile the kernel with debug info"：
+
+CONFIG_DEBUG_INFO=Y
+
+This causes the kernel to be built with debug symbols. The dump analysis tools require a vmlinux with debug symbols in order to read and analyze a dump file.\
+这会使内核生成调试符号。转储分析工具需要具有调试符号的 vmlinux 才能读取和分析转储文件。
+
+### Dump-capture kernel config options (Arch Independent)
+
 
 ## Extended crashkernel syntax
 
