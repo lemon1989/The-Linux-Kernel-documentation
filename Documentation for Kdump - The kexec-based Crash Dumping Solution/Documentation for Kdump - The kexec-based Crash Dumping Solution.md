@@ -299,10 +299,10 @@ Based on the architecture and type of image (relocatable or not), one can choose
 For i386 and x86_64:\
 对于 i386 和 x86_64：
 
-- Use vmlinux if kernel is not relocatable.
+- Use vmlinux if kernel is not relocatable.\
 如果内核不可重定位，请使用 vmlinux。
 
-- Use bzImage/vmlinuz if kernel is relocatable.
+- Use bzImage/vmlinuz if kernel is relocatable.\
 如果内核可重定位，请使用 bzImage/vmlinuz。
 
 
