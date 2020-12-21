@@ -419,7 +419,7 @@ The –elf32-core-headers option can be used to force the generation of ELF32 he
 内核报错
 
 After successfully loading the dump-capture kernel as previously described, the system will reboot into the dump-capture kernel if a system crash is triggered. Trigger points are located in panic(), die(), die_nmi() and in the sysrq handler (ALT-SysRq-c).\
-成功加载转储捕获内核后，如前所述，如果触发系统崩溃，系统将重新启动到转储捕获内核。触发点位于恐慌（）、死（die_nmi）、die_nmi（）和系统处理程序（ALT-SysRq-c中）。
+成功加载转储捕获内核后，如前所述，如果触发系统崩溃，系统将重新启动到转储捕获内核。触发点位于 panic()、die()、die_nmi() 和系统处理程序(ALT-SysRq-c)。
 
 
 
