@@ -415,7 +415,11 @@ The –elf32-core-headers option can be used to force the generation of ELF32 he
 - For s390x systems with many attached devices the “cio_ignore” kernel parameter should be used for the kdump kernel in order to prevent allocation of kernel memory for devices that are not relevant for kdump. The same applies to systems that use SCSI/FCP devices. In that case the “allow_lun_scan” zfcp module parameter should be set to zero before setting FCP devices online.\
 对于具有许多连接设备的 s390x 系统，应对 kdump 内核使用"cio_ignore"内核参数，以防止为与 kdump 不相关的设备分配内核内存。这同样适用于使用 SCSI/FCP 设备的系统。在这种情况下，设置 FCP 设备之前，zfcp 模块 allow_lun_scan 参数应设置为零。
 
+## Kernel Panic
+内核报错
 
+After successfully loading the dump-capture kernel as previously described, the system will reboot into the dump-capture kernel if a system crash is triggered. Trigger points are located in panic(), die(), die_nmi() and in the sysrq handler (ALT-SysRq-c).\
+成功加载转储捕获内核后，如前所述，如果触发系统崩溃，系统将重新启动到转储捕获内核。触发点位于恐慌（）、死（die_nmi）、die_nmi（）和系统处理程序（ALT-SysRq-c中）。
 
 
 
