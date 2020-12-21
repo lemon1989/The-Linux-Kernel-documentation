@@ -413,7 +413,8 @@ The –elf32-core-headers option can be used to force the generation of ELF32 he
 对于 s390x 有两种 kdump 模式：如果使用 elfcorehdr= kernel parameter 指定了 ELF 标头，则 kdump 内核会使用它，就像它在所有其他体系结构上一样。如果未指定 elfcorehdr= kernel parameter，则 s390x kdump 内核将动态创建标头。第二种模式的优点是，对于 CPU 和内存热插拔，kdump 不需要用 kexec_load（） 重新加载。
 
 - For s390x systems with many attached devices the “cio_ignore” kernel parameter should be used for the kdump kernel in order to prevent allocation of kernel memory for devices that are not relevant for kdump. The same applies to systems that use SCSI/FCP devices. In that case the “allow_lun_scan” zfcp module parameter should be set to zero before setting FCP devices online.\
-对于具有许多连接设备的 s390x 系统，应对 kdump 内核使用"cio_ignore"内核参数，以防止为与 kdump 不相关的设备分配内核内存。这同样适用于使用 SCSI/FCP 设备的系统。在这种情况下，在设置 FCP 设备allow_lun_scan之前，"未执行"zfcp 模块参数应设置为零。
+对于具有许多连接设备的 s390x 系统，应对 kdump 内核使用"cio_ignore"内核参数，以防止为与 kdump 不相关的设备分配内核内存。这同样适用于使用 SCSI/FCP 设备的系统。在这种情况下，设置 FCP 设备之前，zfcp 模块 allow_lun_scan 参数应设置为零。
+
 
 
 
