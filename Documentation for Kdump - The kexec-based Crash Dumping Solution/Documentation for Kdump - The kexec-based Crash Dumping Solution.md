@@ -391,6 +391,33 @@ Notes on loading the dump-capture kernel:\
 - By default, the ELF headers are stored in ELF64 format to support systems with more than 4GB memory. On i386, kexec automatically checks if the physical RAM size exceeds the 4 GB limit and if not, uses ELF32. So, on non-PAE systems, ELF32 is always used.\
 默认情况下，ELF 标头以 ELF64 格式存储，以支持内存超过 4GB 的系统。在 i386 上，kexec 会自动检查物理 RAM 大小是否超过 4 GB 限制，如果没有，则使用 ELF32。因此，在 non-PAE 系统上，始终使用 ELF32。
 
+The –elf32-core-headers option can be used to force the generation of ELF32 headers. This is necessary because GDB currently cannot open vmcore files with ELF64 headers on 32-bit systems.\
+配置 elf32-core-headers 选项后可强制生成 ELF32 标头。因为目前 GDB 在32位系统上无法打开带有 ELF64 标头的 vmcore 文件。
+
+- The “irqpoll” boot parameter reduces driver initialization failures due to shared interrupts in the dump-capture kernel.\
+"irqpoll"引导参数减少了由于转储捕获内核中的共享中断导致的驱动程序初始化失败。
+
+- You must specify <root-dev> in the format corresponding to the root device name in the output of mount command.\
+你必须在 mount 挂载命令中，按照<root-dev>格式指定根设备名称。
+    
+- Boot parameter “1” boots the dump-capture kernel into single-user mode without networking. If you want networking, use “3”.\
+如果未联网时，引导参数"1"将转储捕获内核引导到单用户模式。如果要联网，请使用"3"。
+
+- We generally don’t have to bring up a SMP kernel just to capture the dump. Hence generally it is useful either to build a UP dump-capture kernel or specify maxcpus=1 option while loading dump-capture kernel. Note, though maxcpus always works, you had better replace it with nr_cpus to save memory if supported by the current ARCH, such as x86.\
+我们通常不必使用 SMP 内核来捕获输出。因此，一般构建一个可运行转储捕获内核或在加载转储捕获内核时指定 maxcpus=1 选项非常有用。请注意，虽然 maxcpus 始终有效，你最好使用 nr_cpus 替换 maxcpus=1 来保存内存，例如，x86 架构支持 nr_cpus。
+
+- You should enable multi-cpu support in dump-capture kernel if you intend to use multi-thread programs with it, such as parallel dump feature of makedumpfile. Otherwise, the multi-thread program may have a great performance degradation. To enable multi-cpu support, you should bring up an SMP dump-capture kernel and specify maxcpus/nr_cpus, disable_cpu_apicid=[X] options while loading it.\
+如果你打算使用多线程程序（如 makedumpfile 的并行转储功能），则应在转储捕获内核中启用 multi-cpu 支持。否则，多线程程序可能会严重性能下降。若要启用 multi-cpu 支持，应在加载时启动 SMP 转储捕获内核并指定 maxcpus/nr_cpus，disable_cpu_apicid[X] 选项。
+
+- For s390x there are two kdump modes: If a ELF header is specified with the elfcorehdr= kernel parameter, it is used by the kdump kernel as it is done on all other architectures. If no elfcorehdr= kernel parameter is specified, the s390x kdump kernel dynamically creates the header. The second mode has the advantage that for CPU and memory hotplug, kdump has not to be reloaded with kexec_load().\
+对于 s390x 有两种 kdump 模式：如果使用 elfcorehdr= kernel parameter 指定了 ELF 标头，则 kdump 内核会使用它，就像它在所有其他体系结构上一样。如果未指定 elfcorehdr= kernel parameter，则 s390x kdump 内核将动态创建标头。第二种模式的优点是，对于 CPU 和内存热插拔，kdump 不需要用 kexec_load（） 重新加载。
+
+- For s390x systems with many attached devices the “cio_ignore” kernel parameter should be used for the kdump kernel in order to prevent allocation of kernel memory for devices that are not relevant for kdump. The same applies to systems that use SCSI/FCP devices. In that case the “allow_lun_scan” zfcp module parameter should be set to zero before setting FCP devices online.\
+对于具有许多连接设备的 s390x 系统，应对 kdump 内核使用"cio_ignore"内核参数，以防止为与 kdump 不相关的设备分配内核内存。这同样适用于使用 SCSI/FCP 设备的系统。在这种情况下，在设置 FCP 设备allow_lun_scan之前，"未执行"zfcp 模块参数应设置为零。
+
+
+
+
 
 
 
