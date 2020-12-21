@@ -421,6 +421,21 @@ The –elf32-core-headers option can be used to force the generation of ELF32 he
 After successfully loading the dump-capture kernel as previously described, the system will reboot into the dump-capture kernel if a system crash is triggered. Trigger points are located in panic(), die(), die_nmi() and in the sysrq handler (ALT-SysRq-c).\
 成功加载转储捕获内核后，如前所述，如果触发系统崩溃，系统将重新启动到转储捕获内核。触发点位于 panic()、die()、die_nmi() 和系统处理程序(ALT-SysRq-c)。
 
+The following conditions will execute a crash trigger point:\
+以下条件将执行崩溃触发器点：
+
+If a hard lockup is detected and “NMI watchdog” is configured, the system will boot into the dump-capture kernel ( die_nmi() ).\
+如果检测到硬锁定并配置了"NMI watchdog"，系统将启动到转储捕获内核 ( die_nmi() )。
+
+If die() is called, and it happens to be a thread with pid 0 or 1, or die() is called inside interrupt context or die() is called and panic_on_oops is set, the system will boot into the dump-capture kernel.\
+如果调用 die()，并且它恰好是具有 pid 0 或 1 的线程，或者 die() 在中断上下文中调用或 die() 被调用并设置 panic_on_oops，则系统将引导到转储捕获内核。
+
+On powerpc systems when a soft-reset is generated, die() is called by all cpus and the system will boot into the dump-capture kernel.\
+在 powerpc 系统生成软重置时，所有 cpu 调用了 die()，系统将引导到转储捕获内核。
+
+For testing purposes, you can trigger a crash by using “ALT-SysRq-c”, “echo c > /proc/sysrq-trigger” or write a module to force the panic.\
+出于测试目的，你可以使用"ALT-SysRq-c"，"echo c > /proc/sysrq-trigger"触发崩溃，或编写模块来强制出错。
+
 
 
 
