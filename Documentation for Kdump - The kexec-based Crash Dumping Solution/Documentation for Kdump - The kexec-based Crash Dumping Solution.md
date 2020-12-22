@@ -472,6 +472,11 @@ Crash 文档在以下链接：
 [https://crash-utility.github.io/](https://crash-utility.github.io/)
 
 ## Trigger Kdump on WARN()
+在 WARN() 上触发 Kdump
+
+The kernel parameter, panic_on_warn, calls panic() in all WARN() paths. This will cause a kdump to occur at the panic() call. In cases where a user wants to specify this during runtime, /proc/sys/kernel/panic_on_warn can be set to 1 to achieve the same behaviour.\
+内核参数，panic_on_warn 在所有 WARN() 路径中调用 panic()。这将导致在调用 panic() 时发生 kdump。如果用户希望在运行时指定此项，则 /proc/sys/kernel/panic_on_warn 可设置为 1 以实现相同的行为。
+
 
 
 
