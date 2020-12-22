@@ -456,13 +456,13 @@ You can do limited analysis using GDB on the dump file copied out of /proc/vmcor
     gdb vmlinux <dump-file>
 
 Stack trace for the task on processor 0, register display, and memory display work fine.\
-处理器 0 上任务的堆栈跟踪、寄存器显示和内存显示工作正常。
+在处理器 0 上正常运行任务的堆栈跟踪、寄存器显示和内存显示。
 
 Note: GDB cannot analyze core files generated in ELF64 format for x86. On systems with a maximum of 4GB of memory, you can generate ELF32-format headers using the –elf32-core-headers kernel option on the dump kernel.\
-注意：GDB 无法分析以 ELF64 格式生成的 x86 核心文件。在内存最多为 4GB 的系统上，你可以使用转储内核上的 elf32-core-headers 配置项生成 ELF32 格式标头。
+注意：GDB 无法分析以 ELF64 格式生成的 x86 核心转储文件。在内存最多为 4GB 的系统上，你可以使用转储内核上的 elf32-core-headers 配置项生成 ELF32 格式的标头。
 
 You can also use the Crash utility to analyze dump files in Kdump format. Crash is available at the following URL:\
-还可以使用 Crash 实用程序以 Kdump 格式分析转储文件。Crash 可在以下 URL 中使用：
+你还可以使用 Crash 工具以 Kdump 格式来分析转储文件。Crash 可在以下 URL 中下载：
 
 [https://github.com/crash-utility/crash](https://github.com/crash-utility/crash)
 
