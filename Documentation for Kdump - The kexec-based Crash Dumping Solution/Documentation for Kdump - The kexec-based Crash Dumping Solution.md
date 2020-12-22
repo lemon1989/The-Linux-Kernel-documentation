@@ -436,6 +436,18 @@ On powerpc systems when a soft-reset is generated, die() is called by all cpus a
 For testing purposes, you can trigger a crash by using “ALT-SysRq-c”, “echo c > /proc/sysrq-trigger” or write a module to force the panic.\
 出于测试目的，你可以使用"ALT-SysRq-c"，"echo c > /proc/sysrq-trigger"触发崩溃，或编写模块来强制出错。
 
+## Write Out the Dump File
+写入 Dump 文件
+
+After the dump-capture kernel is booted, write out the dump file with the following command:\
+启动转储捕获内核后，使用以下命令注销转储文件：
+
+    cp /proc/vmcore <dump-file>
+    
+## Analysis 
+分析
+
+
 
 
 
