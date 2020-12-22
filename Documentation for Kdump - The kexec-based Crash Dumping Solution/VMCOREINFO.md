@@ -1,4 +1,4 @@
-# VMCOREINFO
+# [VMCOREINFO](https://www.kernel.org/doc/html/latest/admin-guide/kdump/vmcoreinfo.html)
 
 ## What is it?
 这是什么？
