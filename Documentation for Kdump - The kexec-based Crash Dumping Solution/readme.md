@@ -7,6 +7,6 @@ This document includes overview, setup and installation, and analysis informatio
 -   [Documentation for Kdump - The kexec-based Crash Dumping Solution](https://github.com/lemon1989/The-Linux-Kernel-documentation/blob/main/Documentation%20for%20Kdump%20-%20The%20kexec-based%20Crash%20Dumping%20Solution/Documentation%20for%20Kdump%20-%20The%20kexec-based%20Crash%20Dumping%20Solution.md)\
 Kdump 文档 - 一种基于 kexec 的崩溃转储解决方案
 
--   [VMCOREINFO](https://www.kernel.org/doc/html/latest/admin-guide/kdump/vmcoreinfo.html)\
+-   [VMCOREINFO](https://github.com/lemon1989/The-Linux-Kernel-documentation/tree/main/Documentation%20for%20Kdump%20-%20The%20kexec-based%20Crash%20Dumping%20Solution)\
 VMCOREINFO
 
