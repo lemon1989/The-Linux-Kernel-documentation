@@ -477,6 +477,20 @@ Crash 文档在以下链接：
 The kernel parameter, panic_on_warn, calls panic() in all WARN() paths. This will cause a kdump to occur at the panic() call. In cases where a user wants to specify this during runtime, /proc/sys/kernel/panic_on_warn can be set to 1 to achieve the same behaviour.\
 内核参数，panic_on_warn 在所有 WARN() 路径中调用 panic()。这将导致在调用 panic() 时发生 kdump。如果用户希望在运行时指定此项，则 /proc/sys/kernel/panic_on_warn 可设置为 1 以实现相同的行为。
 
+## Trigger Kdump on add_taint()
+在 add_taint() 上触发 Kdump
+
+The kernel parameter panic_on_taint facilitates a conditional call to panic() from within add_taint() whenever the value set in this bitmask matches with the bit flag being set by add_taint(). This will cause a kdump to occur at the add_taint()->panic() call.\
+每当此位 panic_on_taint 中设置的值与 add_taint() 设置的位标志匹配时，内核参数都便于从 add_taint() 内对 panic() 进行条件调用。这将导致 kdump 在 add_taint()->panic() 调用时发生。
+
+## Contact
+联系人
+
+- Vivek Goyal ([vgoyal@redhat.com])
+- Maneesh Soni ([maneesh@in.ibm.com])
+
+## GDB macros
+
 
 
 
