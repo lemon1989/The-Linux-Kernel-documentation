@@ -40,7 +40,7 @@ The global page directory pointer of the kernel. Used to translate virtual to ph
 ### _stext
 
 Defines the beginning of the text section. In general, _stext indicates the kernel start address. Used to convert a virtual address from the direct kernel map to a physical address.\
-定义文本部分的开头。通常，_stext指示内核开始地址。用于将虚拟地址从直接内核映射转换为物理地址。
+定义代码部分的开头。通常， _stext 指示内核开始地址。用于将虚拟地址从直接内核映射转换为物理地址。
 
 ### vmap_area_list
 
@@ -50,7 +50,7 @@ Stores the virtual area list. makedumpfile gets the vmalloc start value from thi
 ## mem_map
 
 Physical addresses are translated to struct pages by treating them as an index into the mem_map array. Right-shifting a physical address PAGE_SHIFT bits converts it into a page frame number which is an index into that mem_map array.\
-通过将物理地址作为索引处理到数组中，将物理地址mem_map页。右移物理地址PAGE_SHIFT位将其转换为页框号，该页框号是该数组的mem_map。
+通过将物理地址作为索引写入到数组中，将物理地址mem_map页。右移物理地址 PAGE_SHIFT 位将其转换为页框号，该页框号是该数组的mem_map。
 
 Used to map an address to the corresponding struct page.\
 用于将地址映射到相应的结构页。
