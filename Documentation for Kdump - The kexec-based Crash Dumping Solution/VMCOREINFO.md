@@ -32,5 +32,28 @@ User-space tools can get the kernel name, host name, kernel release number, kern
 An array node_states[N_ONLINE] which represents the set of online nodes in a system, one bit position per node number. Used to keep track of which nodes are in the system and online.\
 数组 node_states[N_ONLINE]，它表示系统中的联机节点集，每个节点编号占用一个位定位。用于跟踪系统和联机的节点。
 
+### swapper_pg_dir
+
+The global page directory pointer of the kernel. Used to translate virtual to physical addresses.\
+内核的全局页面目录指针。用于将虚拟地址转换为物理地址。
+
+### _stext
+
+Defines the beginning of the text section. In general, _stext indicates the kernel start address. Used to convert a virtual address from the direct kernel map to a physical address.\
+定义文本部分的开头。通常，_stext指示内核开始地址。用于将虚拟地址从直接内核映射转换为物理地址。
+
+### vmap_area_list
+
+Stores the virtual area list. makedumpfile gets the vmalloc start value from this variable and its value is necessary for vmalloc translation.\
+存储虚拟区域列表。makedumpfile 从该变量获取 vmalloc 开始值，其值对于 vmalloc 转换是必要的。
+
+## mem_map
+
+Physical addresses are translated to struct pages by treating them as an index into the mem_map array. Right-shifting a physical address PAGE_SHIFT bits converts it into a page frame number which is an index into that mem_map array.\
+通过将物理地址作为索引处理到数组中，将物理地址mem_map页。右移物理地址PAGE_SHIFT位将其转换为页框号，该页框号是该数组的mem_map。
+
+Used to map an address to the corresponding struct page.\
+用于将地址映射到相应的结构页。
+
 ## x86_64
 x86_64
