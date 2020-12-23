@@ -30,7 +30,7 @@ User-space tools can get the kernel name, host name, kernel release number, kern
 ### node_online_map
 
 An array node_states[N_ONLINE] which represents the set of online nodes in a system, one bit position per node number. Used to keep track of which nodes are in the system and online.\
-数组 node_states[N_ONLINE]，它表示系统中的联机节点集，每个节点编号一个位定位。用于跟踪系统和联机的节点。
+数组 node_states[N_ONLINE]，它表示系统中的联机节点集，每个节点编号占用一个位定位。用于跟踪系统和联机的节点。
 
 ## x86_64
 x86_64
