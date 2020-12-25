@@ -47,13 +47,21 @@ Defines the beginning of the text section. In general, _stext indicates the kern
 Stores the virtual area list. makedumpfile gets the vmalloc start value from this variable and its value is necessary for vmalloc translation.\
 存储虚拟区域列表。makedumpfile 从该变量获取 vmalloc 开始值，其值对于 vmalloc 转换是必要的。
 
-## mem_map
+### mem_map
 
 Physical addresses are translated to struct pages by treating them as an index into the mem_map array. Right-shifting a physical address PAGE_SHIFT bits converts it into a page frame number which is an index into that mem_map array.\
 通过将物理地址转换为 struct pages，作为索引写入到 mem_map 数组中。右移一个物理地址的 PAGE_SHIFT 位将其转换为页框号，该页框号是 mem_map 数组的索引。
 
 Used to map an address to the corresponding struct page.\
 用于将地址映射到相应的 struct page。
+
+### contig_page_data
+
+Makedumpfile gets the pglist_data structure from this symbol, which is used to describe the memory layout.\
+Makedumpfile pglist_data符号获取结构，该符号用于描述内存布局。
+
+User-space tools use this to exclude free pages when dumping memory.\
+用户空间工具在转储内存时使用此来排除可用页面。
 
 ## x86_64
 x86_64
