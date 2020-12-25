@@ -58,10 +58,18 @@ Used to map an address to the corresponding struct page.\
 ### contig_page_data
 
 Makedumpfile gets the pglist_data structure from this symbol, which is used to describe the memory layout.\
-Makedumpfile pglist_data符号获取结构，该符号用于描述内存布局。
+Makedumpfile 使用此符号获取 pglist_data结构，该符号用于描述内存布局。
 
 User-space tools use this to exclude free pages when dumping memory.\
-用户空间工具在转储内存时使用此来排除可用页面。
+用户空间工具在转储内存时使用此符号来排除内存空闲页。
+
+### mem_section|(mem_section, NR_SECTION_ROOTS)|(mem_section, section_mem_map)
+
+The address of the mem_section array, its length, structure size, and the section_mem_map offset.\
+数组的地址mem_section、其长度、结构大小和section_mem_map偏移。
+
+It exists in the sparse memory mapping model, and it is also somewhat similar to the mem_map variable, both of them are used to translate an address.\
+它存在于稀疏内存映射模型中，并且它也与 mem_map 变量有些相似，它们都用于转换地址。
 
 ## x86_64
 x86_64
