@@ -66,10 +66,31 @@ User-space tools use this to exclude free pages when dumping memory.\
 ### mem_section|(mem_section, NR_SECTION_ROOTS)|(mem_section, section_mem_map)
 
 The address of the mem_section array, its length, structure size, and the section_mem_map offset.\
-数组的地址mem_section、其长度、结构大小和section_mem_map偏移。
+数组 mem_section 的地址、长度、结构大小和 section_mem_map 偏移。
 
 It exists in the sparse memory mapping model, and it is also somewhat similar to the mem_map variable, both of them are used to translate an address.\
-它存在于稀疏内存映射模型中，并且它也与 mem_map 变量有些相似，它们都用于转换地址。
+它存在于稀疏内存映射模型中，并且它也与 mem_map 变量有些相似，它们都用于地址转换。
+
+### MAX_PHYSMEM_BITS
+
+Defines the maximum supported physical address space memory.\
+定义支持的最大物理地址空间内存。
+
+### page
+
+The size of a page structure. struct page is an important data structure and it is widely used to compute contiguous memory.\
+page structure 结构的大小。struct page 是一种重要的数据结构，它广泛用于计算连续内存。
+
+### pglist_data
+
+The size of a pglist_data structure. This value is used to check if the pglist_data structure is valid. It is also used for checking the memory type.\
+pglist_data 结构大小。此值用于检查 pglist_data 结构是否有效。它还用于检查内存类型。
+
+### zone
+
+The size of a zone structure. This value is used to check if the zone structure has been found. It is also used for excluding free pages.\
+zone 结构的大小。此值用于检查是否找到了 zone 结构。它还用于排除内存空闲页。
+
 
 ## x86_64
 x86_64
