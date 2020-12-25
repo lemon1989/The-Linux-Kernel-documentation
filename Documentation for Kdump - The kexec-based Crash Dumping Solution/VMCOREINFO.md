@@ -91,6 +91,26 @@ pglist_data 结构大小。此值用于检查 pglist_data 结构是否有效。�
 The size of a zone structure. This value is used to check if the zone structure has been found. It is also used for excluding free pages.\
 zone 结构的大小。此值用于检查是否找到了 zone 结构。它还用于排除内存空闲页。
 
+### free_area
+
+The size of a free_area structure. It indicates whether the free_area structure is valid or not. Useful when excluding free pages.\
+结构结构free_area大小。它指示free_area结构是否有效。在排除可用页面时很有用。
+
+### list_head
+
+The size of a list_head structure. Used when iterating lists in a post-mortem analysis session.\
+结构结构list_head大小。在事后分析会话中对列表进行活动时使用。
+
+### nodemask_t
+
+The size of a nodemask_t type. Used to compute the number of online nodes.\
+类型nodemask_t大小。用于计算联机节点的数量。
+
+### (page, flags|_refcount|mapping|lru|_mapcount|private|compound_dtor|compound_order|compound_head)
+
+User-space tools compute their values based on the offset of these variables. The variables are used when excluding unnecessary pages.\
+用户空间工具根据这些变量的偏移量计算其值。在排除不必要的页面时使用变量。
+
 
 ## x86_64
 x86_64
