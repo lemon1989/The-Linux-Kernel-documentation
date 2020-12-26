@@ -304,7 +304,7 @@ AMD-specific with SME support: it indicates the secure memory encryption mask. M
 AMD 特定于支持 SME：它指示安全内存加密掩码。Makedumpfile 工具需要知道崩溃内核是否加密。如果在第一个内核中启用了 SME，则崩溃内核的页面表条目（pgd/pud/pmd/pte）包含内存加密掩码。这用于删除 SME 掩码并获取真正的物理地址。
 
 Currently, sme_mask stores the value of the C-bit position. If needed, additional SME-relevant info can be placed in that variable.\
-目前，sme_mask存储 C-bit 位置的值。如果需要，可以在该变量中放置其他 SME 相关信息。
+目前，sme_mask 存储 C-bit 位置的值。如果需要，可以在该变量中放置其他 SME 相关信息。
 
 For example:\
 例如：
