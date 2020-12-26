@@ -163,7 +163,13 @@ A pointer to the static boot printk ringbuffer. If @prb has a different value, t
 ### clear_seq
 
 The sequence number of the printk() record after the last clear command. It indicates the first record after the last SYSLOG_ACTION_CLEAR, like issued by ‘dmesg -c’. Used by user-space tools to dump a subset of the dmesg log.\
-最后一个清除命令后 printk() 记录的序列号。它指示上次 SYSLOG_ACTION_CLEAR 记录后的第一个记录，如由"dmesg-c"发布。用户空间工具用于转储 dmesg 日志的子集。
+最后一个 clear 清除命令后 printk() 记录的序列号。它指示上次 SYSLOG_ACTION_CLEAR 记录后的第一个记录，如由"dmesg-c"发布。用户空间工具用于转储 dmesg 日志的子集。
+
+### printk_ringbuffer
+
+The size of a printk_ringbuffer structure. This structure contains all information required for accessing the various components of the kernel log buffer.\
+printk_ringbuffer 结构大小。此结构包含访问内核日志缓冲区的各种组件所需的所有信息。
+
 
 ## x86_64
 x86_64
