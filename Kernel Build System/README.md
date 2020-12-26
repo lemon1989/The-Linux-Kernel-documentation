@@ -1,7 +1,7 @@
 
 # [Kernel Build System](https://www.kernel.org/doc/html/latest/kbuild/index.html#)
 
-- Kconfig Language
+- [Kconfig Language](https://github.com/lemon1989/The-Linux-Kernel-documentation/blob/main/Kernel%20Build%20System/Kconfig%20Language.md)
 - Kconfig macro language
 - Kbuild
 - Kconfig make config
