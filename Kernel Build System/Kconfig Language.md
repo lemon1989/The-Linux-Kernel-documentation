@@ -48,7 +48,7 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 类型定义："布尔"/"三态"/"字符串"/"十六进制"/"整型"
 
 Every config option must have a type. There are only two basic types: tristate and string; the other types are based on these two. The type definition optionally accepts an input prompt, so these two examples are equivalent:\
-每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选地接受输入提示，因此这两个示例等效：
+每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选泽地接受输入提示，因此这两个示例等效：
 
     bool "Networking support"
     
@@ -56,6 +56,12 @@ and:
 
     bool
     prompt "Networking support"
+
+- input prompt: “prompt” <prompt> [“if” <expr>]\
+输入提示："提示"<prompt>"如果"<expr>]
+    
+Every menu entry can have at most one prompt, which is used to display to the user. Optionally dependencies only for this prompt can be added with “if”.\
+每个菜单项最多只能有一个提示，用于向用户显示。可选仅为此提示添加依赖项，并添加"if"。
 
 
 
