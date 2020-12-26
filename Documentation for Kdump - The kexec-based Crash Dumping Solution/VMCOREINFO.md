@@ -225,6 +225,22 @@ prb_data_ring 结构大小。此结构包含有关一组数据块的信息。
 Offsets for the fields describing a set of data blocks. Used by user-space tools to be able to access the data blocks without requiring the declaration of the structure.\
 描述一组数据块字段的偏移量。用户空间工具用以访问数据块，而无需声明此结构。
 
+### atomic_long_t
+
+The size of the atomic_long_t structure. Used by user-space tools to be able to copy the full structure, regardless of its architecture-specific implementation.\
+atomic_long_t 结构大小。用户空间工具用以复制整个结构，而不管其特定于体系结构如何实现。
+
+### (atomic_long_t, counter)
+
+Offset for the long value of an atomic_long_t variable. Used by user-space tools to access the long value without requiring the architecture-specific declaration.\
+atomic_long_t 变量的长整型值的偏移量。用户空间工具用于访问长整型值，而无需特定于体系结构的声明。
+
+### (free_area.free_list, MIGRATE_TYPES)
+
+The number of migrate types for pages. The free_list is described by the array. Used by tools to compute the number of free pages.\
+页面迁移页数。free_list 用此数组描述。工具用以计算可用空闲内存页数。
+
+
 
 ## x86_64
 x86_64
