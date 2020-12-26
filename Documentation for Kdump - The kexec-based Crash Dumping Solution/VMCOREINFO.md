@@ -421,7 +421,7 @@ See above.\
 ### vmemmap_list
 
 The vmemmap_list maintains the entire vmemmap physical mapping. Used to get vmemmap list count and populated vmemmap regions info. If the vmemmap address translation information is stored in the crash kernel, it is used to translate vmemmap kernel virtual addresses.\
-该vmemmap_list整个 vmemmap 物理映射。用于获取 vmemmap 列表计数和填充的 vmemmap 区域信息。如果 vmemmap 地址转换信息存储在崩溃内核中，则用于转换 vmemmap 内核虚拟地址。
+vmemmap_list 维护整个 vmemmap 物理映射。用于获取 vmemmap 列表计数和填充的 vmemmap 区域信息。如果 vmemmap 地址转换信息存储在崩溃内核中，则用于转换 vmemmap 内核虚拟地址。
 
 ### mmu_vmemmap_psize
 
@@ -434,23 +434,23 @@ Page size definitions, i.e. 4k, 64k, or 16M.
 页面大小定义，即 4k、64k 或 16M。
 
 Used to make vtop translations.\
-用于进行 vtop 翻译。
+用于进行 vtop 转换。
 
 ### vmemmap_backing|(vmemmap_backing, list)|(vmemmap_backing, phys)|(vmemmap_backing, virt_addr)
 
 The vmemmap virtual address space management does not have a traditional page table to track which virtual struct pages are backed by a physical mapping. The virtual to physical mappings are tracked in a simple linked list format.\
-vmemmap 虚拟地址空间管理没有传统的页面表来跟踪哪些虚拟结构页由物理映射支持。虚拟到物理映射以简单的链接列表格式进行跟踪。
+vmemmap 虚拟地址空间管理，没有传统的页面表来跟踪哪些虚拟结构页支持物理映射。虚拟到物理映射以简单的链接列表格式进行跟踪。
 
 User-space tools need to know the offset of list, phys and virt_addr when computing the count of vmemmap regions.\
-用户空间工具在计算 vmemmap 区域计数时virt_addr、物理和数据值的偏移量。
+用户空间工具在计算 vmemmap 区域数时，需要知道链接列表偏移量、phys 和 virt_addr。
 
 ### mmu_psize_def|(mmu_psize_def, shift)
 
 The size of a struct mmu_psize_def and the offset of mmu_psize_def’s member.\
-结构的大小mmu_psize_def和mmu_psize_def的偏移量。
+mmu_psize_def 结构的大小和 mmu_psize_def 成员的偏移量。
 
 Used in vtop translations.\
-用于 vtop 翻译。
+用于 vtop 转换。
 
 ## sh
 
