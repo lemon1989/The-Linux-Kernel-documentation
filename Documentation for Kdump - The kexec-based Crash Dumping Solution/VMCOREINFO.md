@@ -168,8 +168,12 @@ The sequence number of the printk() record after the last clear command. It indi
 ### printk_ringbuffer
 
 The size of a printk_ringbuffer structure. This structure contains all information required for accessing the various components of the kernel log buffer.\
-printk_ringbuffer 结构大小。此结构包含访问内核日志缓冲区的各种组件所需的所有信息。
+printk_ringbuffer 结构大小。此结构包含访问内核日志缓冲区各组件所需的所有信息。
 
+### (printk_ringbuffer, desc_ring|text_data_ring|dict_data_ring|fail)
+
+Offsets for the various components of the printk ringbuffer. Used by user-space tools to view the kernel log buffer without requiring the declaration of the structure.\
+打印环缓冲器各组件的偏移量。用户空间工具用于查看内核日志缓冲区，而无需声明结构。
 
 ## x86_64
 x86_64
