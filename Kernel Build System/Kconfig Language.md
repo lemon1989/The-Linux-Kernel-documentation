@@ -61,7 +61,7 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 输入提示："prompt"<prompt>"if"<expr>]
     
   Every menu entry can have at most one prompt, which is used to display to the user. Optionally dependencies only for this prompt can be added with “if”.\
-  每个菜单项最多只能有一个提示，用于向用户显示。添加"if"可选择地为此提示添加依赖项，。
+  每个菜单项最多只能有一个提示，用于向用户显示。添加"if"可选择地为此提示添加依赖项。
 
 - default value: “default” <expr> [“if” <expr>]\
 默认值："默认"<expr>"如果"<expr>]
