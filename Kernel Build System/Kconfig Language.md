@@ -4,7 +4,7 @@
 介绍
 
 The configuration database is a collection of configuration options organized in a tree structure:\
-配置数据库是组织成树结构的配置选项的集合：
+配置数据库是组织成树结构形式配置项的集合：
 
     +- Code maturity level options
     |  +- Prompt for development and/or incomplete code/drivers
