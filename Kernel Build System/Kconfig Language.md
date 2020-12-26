@@ -83,6 +83,7 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 
     b.A new gatekeeping Kconfig option that hides/shows other Kconfig options (but does not generate any code of its own), should be “default y” so people will  see those other options.\
     隐藏/显示其他 Kconfig 选项（但不生成其自身任何代码）的新守门 Kconfig 选项应为"默认 y"，以便用户将看到这些其他选项。
+    
     c.Sub-driver behavior or similar options for a driver that is “default n”. This allows you to provide sane defaults.\
     对于"默认 n"的驱动程序，子驱动程序行为或类似选项。这允许您提供理智的默认值。
 
