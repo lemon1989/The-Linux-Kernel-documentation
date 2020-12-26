@@ -160,5 +160,10 @@ A pointer to the printk ringbuffer (struct printk_ringbuffer). This may be point
 A pointer to the static boot printk ringbuffer. If @prb has a different value, this is useful for viewing the initial boot messages, which may have been overwritten in the dynamically allocated ringbuffer.\
 一个指向静态引导打印环形缓冲区的指针。如果 @prb 具有不同的值，这对于查看初始引导消息非常有用，这些消息可能在动态分配的环缓冲区中被覆盖。
 
+### clear_seq
+
+The sequence number of the printk() record after the last clear command. It indicates the first record after the last SYSLOG_ACTION_CLEAR, like issued by ‘dmesg -c’. Used by user-space tools to dump a subset of the dmesg log.\
+最后一个清除命令后 printk() 记录的序列号。它指示上次 SYSLOG_ACTION_CLEAR 记录后的第一个记录，如由"dmesg-c"发布。用户空间工具用于转储 dmesg 日志的子集。
+
 ## x86_64
 x86_64
