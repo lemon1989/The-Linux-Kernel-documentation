@@ -47,8 +47,8 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 - type definition: “bool”/”tristate”/”string”/”hex”/”int”\
 类型定义："布尔"/"三态"/"字符串"/"十六进制"/"整型"
 
-Every config option must have a type. There are only two basic types: tristate and string; the other types are based on these two. The type definition optionally accepts an input prompt, so these two examples are equivalent:\
-每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选泽地接受输入提示，因此这两个示例等效：
+  Every config option must have a type. There are only two basic types: tristate and string; the other types are based on these two. The type definition optionally accepts an input prompt, so these two examples are equivalent:\
+  每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选泽地接受输入提示，因此这两个示例等效：
 
     bool "Networking support"
     
