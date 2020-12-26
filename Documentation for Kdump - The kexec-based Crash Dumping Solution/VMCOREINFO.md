@@ -389,6 +389,23 @@ TTBR1_EL1 是 ARMv8-A 体系结构指定的表基地址寄存器，用于查找�
 It indicates whether the crash kernel supports large physical address extensions. Used to translate virtual to physical addresses.\
 它指示崩溃内核是否支持大型物理地址扩展。用于将虚拟地址转换为物理地址。
 
+## s390
+
+### lowcore_ptr
+
+An array with a pointer to the lowcore of every CPU. Used to print the psw and all registers information.\
+具有指向每个 CPU 的低核的指针的数组。用于打印 psw 和所有寄存器信息。
+
+### high_memory
+
+Used to get the vmalloc_start address from the high_memory symbol.\
+用于从vmalloc_start符号获取high_memory地址。
+
+### (lowcore_ptr, NR_CPUS)
+
+The maximum number of CPUs.\
+CPU 的最大数量。
+
 
 
 
