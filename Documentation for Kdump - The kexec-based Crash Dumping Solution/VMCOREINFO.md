@@ -153,7 +153,12 @@ Free areas descriptor. User-space tools use this value to iterate the free_area 
 ### prb
 
 A pointer to the printk ringbuffer (struct printk_ringbuffer). This may be pointing to the static boot ringbuffer or the dynamically allocated ringbuffer, depending on when the the core dump occurred. Used by user-space tools to read the active kernel log buffer.\
-指向打印环缓冲区（ printk_ringbuffer 结构）。这可能指向静态引导环缓冲区或动态分配的环缓冲区，具体取决于核心转储发生的时间。用户空间工具用于读取活动内核日志缓冲区。
+一个指针指向打印环形缓冲区（ printk_ringbuffer 结构）。这可能指向静态引导环形缓冲区或动态分配的环形缓冲区，具体取决于核心转储发生的时间。用户空间工具用于读取活动内核的日志缓冲区。
+
+### printk_rb_static
+
+A pointer to the static boot printk ringbuffer. If @prb has a different value, this is useful for viewing the initial boot messages, which may have been overwritten in the dynamically allocated ringbuffer.\
+一个指向静态引导打印环形缓冲区的指针。如果 @prb 具有不同的值，这对于查看初始引导消息非常有用，这些消息可能在动态分配的环缓冲区中被覆盖。
 
 ## x86_64
 x86_64
