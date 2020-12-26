@@ -99,7 +99,7 @@ free_area 结构大小。它指示 free_area 结构是否有效。在排除可�
 ### list_head
 
 The size of a list_head structure. Used when iterating lists in a post-mortem analysis session.\
-list_head 结构大小。在事后分析会话中对列表进行访问时使用。
+list_head 结构大小。在事后分析会话中遍历列表时使用。
 
 ### nodemask_t
 
@@ -109,8 +109,51 @@ nodemask_t 类型大小。用于计算联机节点的数量。
 ### (page, flags|_refcount|mapping|lru|_mapcount|private|compound_dtor|compound_order|compound_head)
 
 User-space tools compute their values based on the offset of these variables. The variables are used when excluding unnecessary pages.\
-用户空间工具根据这些变量的偏移量计算其值。这些变量用于排除不必要的内存页。
+用户空间工具根据这些变量的偏移量计算其值。这些变量用于排除不可用的内存页。
 
+### (pglist_data, node_zones|nr_zones|node_mem_map|node_start_pfn|node_spanned_pages|node_id)
+
+On NUMA machines, each NUMA node has a pg_data_t to describe its memory layout. On UMA machines there is a single pglist_data which describes the whole memory.\
+在 NUMA 计算机上，每个 NUMA 节点都有一个 pg_data_t 来描述其内存布局信息。在 UMA 计算机上有一个 pglist_data，它描述了整个内存。
+
+These values are used to check the memory type and to compute the virtual address for memory map.\
+这些值用于检查内存类型和计算内存映射的虚拟地址。
+
+### (zone, free_area|vm_stat|spanned_pages)
+
+Each node is divided into a number of blocks called zones which represent ranges within memory. A zone is described by a structure zone.\
+每个 node 节点被划分为多个称为 zones 的块，它们表示内存中的范围。zone 由 structure zone 结构描述。
+
+User-space tools compute required values based on the offset of these variables.\
+用户空间工具根据这些变量的偏移量计算所需的值。
+
+### (free_area, free_list)
+
+Offset of the free_list’s member. This value is used to compute the number of free pages.\
+free_list 成员的偏移。此值用于计算内存空闲页数。
+
+Each zone has a free_area structure array called free_area[MAX_ORDER]. The free_list represents a linked list of free page blocks.\
+每个 zone 区域都有一个 free_area 结构数组，称为 free_area[MAX_ORDER]。free_list 表示内存空闲页块的链接列表。
+
+### (list_head, next|prev)
+
+Offsets of the list_head’s members. list_head is used to define a circular linked list. User-space tools need these in order to traverse lists.\
+list_head 成员的偏移量。list_head 用于定义循环链接列表。用户空间工具需要 list_head 才能遍历列表。
+
+### (vmap_area, va_start|list)
+
+Offsets of the vmap_area’s members. They carry vmalloc-specific information. Makedumpfile gets the start address of the vmalloc region from this.\
+vmap_area 成员的偏移量。它们携带 vmalloc-specific 的信息。Makedumpfile 从中获取 vmalloc 区域的开始地址。
+
+### (zone.free_area, MAX_ORDER)
+
+Free areas descriptor. User-space tools use this value to iterate the free_area ranges. MAX_ORDER is used by the zone buddy allocator.\
+空闲区域描述符。用户空间工具使用此值来遍历 free_area 范围。MAX_ORDER 由 zone buddy allocator 使用。
+
+### prb
+
+A pointer to the printk ringbuffer (struct printk_ringbuffer). This may be pointing to the static boot ringbuffer or the dynamically allocated ringbuffer, depending on when the the core dump occurred. Used by user-space tools to read the active kernel log buffer.\
+指向打印环缓冲区（ printk_ringbuffer 结构）。这可能指向静态引导环缓冲区或动态分配的环缓冲区，具体取决于核心转储发生的时间。用户空间工具用于读取活动内核日志缓冲区。
 
 ## x86_64
 x86_64
