@@ -271,7 +271,7 @@ Used to convert the virtual address of an exported kernel symbol to its correspo
 ### init_top_pgt
 
 Used to walk through the whole page table and convert virtual addresses to physical addresses. The init_top_pgt is somewhat similar to swapper_pg_dir, but it is only used in x86_64.\
-用于浏览整个页面表并将虚拟地址转换为物理地址。该init_top_pgt与swapper_pg_dir有些类似，但仅用于x86_64。
+用于浏览整个页面表并将虚拟地址转换为物理地址。init_top_pgt 与 swapper_pg_dir 有些类似，但仅用于 x86_64。
 
 ### pgtable_l5_enabled
 
@@ -281,7 +281,7 @@ User-space tools need to know whether the crash kernel was in 5-level paging mod
 ### node_data
 
 This is a struct pglist_data array and stores all NUMA nodes information. Makedumpfile gets the pglist_data structure from it.\
-这是一个结构pglist_data并存储所有 NUMA 节点信息。Makedumpfile 从pglist_data获取结构。
+这是一个 pglist_data 结构并存储所有 NUMA 节点信息。Makedumpfile 从中获取 pglist_data 结构。
 
 ### (node_data, MAX_NUMNODES)
 
@@ -296,15 +296,15 @@ The kernel randomization offset. Used to compute the page offset. If KASLR is di
 ### KERNEL_IMAGE_SIZE
 
 Currently unused by Makedumpfile. Used to compute the module virtual address by Crash.\
-当前未使用由 Makedumpfile。用于按崩溃计算模块虚拟地址。
+Makedumpfile 当前未使用此值 。Crash 用于计算模块虚拟地址。
 
 ### sme_mask
 
 AMD-specific with SME support: it indicates the secure memory encryption mask. Makedumpfile tools need to know whether the crash kernel was encrypted. If SME is enabled in the first kernel, the crash kernel’s page table entries (pgd/pud/pmd/pte) contain the memory encryption mask. This is used to remove the SME mask and obtain the true physical address.\
-AMD 特定于 SME 支持：它指示安全内存加密掩码。Makedumpfile 工具需要知道崩溃内核是否加密。如果在第一个内核中启用了 SME，则崩溃内核的页面表条目（pgd/pud/pmd/pte）包含内存加密掩码。这用于删除 SME 掩码并获取真正的物理地址。
+AMD 特定于支持 SME：它指示安全内存加密掩码。Makedumpfile 工具需要知道崩溃内核是否加密。如果在第一个内核中启用了 SME，则崩溃内核的页面表条目（pgd/pud/pmd/pte）包含内存加密掩码。这用于删除 SME 掩码并获取真正的物理地址。
 
 Currently, sme_mask stores the value of the C-bit position. If needed, additional SME-relevant info can be placed in that variable.\
-目前，sme_mask存储 C 位位置的值。如果需要，可以在该变量中放置其他 SME 相关信息。
+目前，sme_mask存储 C-bit 位置的值。如果需要，可以在该变量中放置其他 SME 相关信息。
 
 For example:\
 例如：
