@@ -240,7 +240,25 @@ atomic_long_t 变量的长整型值的偏移量。用户空间工具用于访问
 The number of migrate types for pages. The free_list is described by the array. Used by tools to compute the number of free pages.\
 页面迁移页数。free_list 用此数组描述。工具用以计算可用空闲内存页数。
 
+### NR_FREE_PAGES
 
+On linux-2.6.21 or later, the number of free pages is in vm_stat[NR_FREE_PAGES]. Used to get the number of free pages.\
+在 linux-2.6.21 或更晚的，vm_stat[NR_FREE_PAGES] 表示可用页数。用于获取可用空闲内存页数。
+
+### PG_lru|PG_private|PG_swapcache|PG_swapbacked|PG_slab|PG_hwpoision|PG_head_mask
+
+Page attributes. These flags are used to filter various unnecessary for dumping pages.\
+页面属性。这些标志用于筛选各种不必要的转储页面。
+
+### PAGE_BUDDY_MAPCOUNT_VALUE(~PG_buddy)|PAGE_OFFLINE_MAPCOUNT_VALUE(~PG_offline)
+
+More page attributes. These flags are used to filter various unnecessary for dumping pages.\
+更多页面属性。这些标志用于筛选各种不必要的转储页面。
+
+### HUGETLB_PAGE_DTOR
+
+The HUGETLB_PAGE_DTOR flag denotes hugetlbfs pages. Makedumpfile excludes these pages.\
+"HUGETLB_PAGE_DTOR表示巨大的tlbfs页面。Makedumpfile 不包括这些页面。
 
 ## x86_64
 x86_64
