@@ -394,20 +394,73 @@ It indicates whether the crash kernel supports large physical address extensions
 ### lowcore_ptr
 
 An array with a pointer to the lowcore of every CPU. Used to print the psw and all registers information.\
-具有指向每个 CPU 的低核的指针的数组。用于打印 psw 和所有寄存器信息。
+具有指向每个 CPU 的 lowcore 的指针的数组。用于打印 psw 和所有寄存器信息。
 
 ### high_memory
 
 Used to get the vmalloc_start address from the high_memory symbol.\
-用于从vmalloc_start符号获取high_memory地址。
+用于从 high_memory 符号获取 vmalloc_start 地址。
 
 ### (lowcore_ptr, NR_CPUS)
 
 The maximum number of CPUs.\
 CPU 的最大数量。
 
+## powerpc
 
+### node_data|(node_data, MAX_NUMNODES)
 
+See above.\
+见上文。
 
+### contig_page_data
 
+See above.\
+见上文。
+
+### vmemmap_list
+
+The vmemmap_list maintains the entire vmemmap physical mapping. Used to get vmemmap list count and populated vmemmap regions info. If the vmemmap address translation information is stored in the crash kernel, it is used to translate vmemmap kernel virtual addresses.\
+该vmemmap_list整个 vmemmap 物理映射。用于获取 vmemmap 列表计数和填充的 vmemmap 区域信息。如果 vmemmap 地址转换信息存储在崩溃内核中，则用于转换 vmemmap 内核虚拟地址。
+
+### mmu_vmemmap_psize
+
+The size of a page. Used to translate virtual to physical addresses.\
+页面的大小。用于将虚拟地址转换为物理地址。
+
+### mmu_psize_defs
+
+Page size definitions, i.e. 4k, 64k, or 16M.
+页面大小定义，即 4k、64k 或 16M。
+
+Used to make vtop translations.\
+用于进行 vtop 翻译。
+
+### vmemmap_backing|(vmemmap_backing, list)|(vmemmap_backing, phys)|(vmemmap_backing, virt_addr)
+
+The vmemmap virtual address space management does not have a traditional page table to track which virtual struct pages are backed by a physical mapping. The virtual to physical mappings are tracked in a simple linked list format.\
+vmemmap 虚拟地址空间管理没有传统的页面表来跟踪哪些虚拟结构页由物理映射支持。虚拟到物理映射以简单的链接列表格式进行跟踪。
+
+User-space tools need to know the offset of list, phys and virt_addr when computing the count of vmemmap regions.\
+用户空间工具在计算 vmemmap 区域计数时virt_addr、物理和数据值的偏移量。
+
+### mmu_psize_def|(mmu_psize_def, shift)
+
+The size of a struct mmu_psize_def and the offset of mmu_psize_def’s member.\
+结构的大小mmu_psize_def和mmu_psize_def的偏移量。
+
+Used in vtop translations.\
+用于 vtop 翻译。
+
+## sh
+
+### node_data|(node_data, MAX_NUMNODES)
+
+See above.\
+见上文。
+
+### X2TLB
+
+Indicates whether the crashed kernel enabled SH extended mode.\
+指示崩溃的内核是否启用 SH 扩展模式。
 
