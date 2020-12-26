@@ -362,7 +362,7 @@ The offset between the kernel virtual and physical mappings. Used to translate v
 ### PHYS_OFFSET
 
 Indicates the physical address of the start of memory. Similar to kimage_voffset, which is used to translate virtual to physical addresses.\
-指示内存开始的物理地址。类似于kimage_voffset，用于将虚拟地址转换为物理地址。
+指示内存开始的物理地址。类似于 kimage_voffset，用于将虚拟地址转换为物理地址。
 
 ### KERNELOFFSET
 
@@ -372,15 +372,15 @@ The kernel randomization offset. Used to compute the page offset. If KASLR is di
 ### KERNELPACMASK
 
 The mask to extract the Pointer Authentication Code from a kernel virtual address.\
-用于从内核虚拟地址提取指针身份验证代码的掩码。
+用于从内核虚拟地址提取 Pointer Authentication Code 的掩码。
 
 ### TCR_EL1.T1SZ
 
 Indicates the size offset of the memory region addressed by TTBR1_EL1. The region size is 2^(64-T1SZ) bytes.\
-指示由计算机处理的内存区域的大小偏移TTBR1_EL1。区域大小为 2+（64-T1SZ） 字节。
+指示由 TTBR1_EL1 处理的内存区域定位的偏移大小。区域大小为 2^(64-T1SZ) 字节。
 
 TTBR1_EL1 is the table base address register specified by ARMv8-A architecture which is used to lookup the page-tables for the Virtual addresses in the higher VA range (refer to ARMv8 ARM document for more details).\
-TTBR1_EL1是 ARMv8-A 体系结构指定的表基地址寄存器，用于查找较高 VA 范围内虚拟地址的页面表（有关更多详细信息，请参阅 ARMv8 ARM 文档）。
+TTBR1_EL1 是 ARMv8-A 体系结构指定的表基地址寄存器，用于查找较高 VA 范围内虚拟地址的页面表（有关更多详细信息，请参阅 ARMv8 ARM 文档）。
 
 
 
