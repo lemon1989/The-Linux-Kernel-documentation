@@ -173,7 +173,15 @@ printk_ringbuffer 结构大小。此结构包含访问内核日志缓冲区各�
 ### (printk_ringbuffer, desc_ring|text_data_ring|dict_data_ring|fail)
 
 Offsets for the various components of the printk ringbuffer. Used by user-space tools to view the kernel log buffer without requiring the declaration of the structure.\
-打印环缓冲器各组件的偏移量。用户空间工具用于查看内核日志缓冲区，而无需声明结构。
+打印环缓冲器各组件的偏移量。用户空间工具用于查看内核日志缓冲区，而无需声明此结构。
+
+### prb_desc_ring
+
+The size of the prb_desc_ring structure. This structure contains information about the set of record descriptors.\
+prb_desc_ring 结构大小。此结构包含有关记录描述符集的信息。
+
+
+
 
 ## x86_64
 x86_64
