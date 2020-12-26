@@ -258,7 +258,58 @@ More page attributes. These flags are used to filter various unnecessary for dum
 ### HUGETLB_PAGE_DTOR
 
 The HUGETLB_PAGE_DTOR flag denotes hugetlbfs pages. Makedumpfile excludes these pages.\
-"HUGETLB_PAGE_DTOR表示巨大的tlbfs页面。Makedumpfile 不包括这些页面。
+HUGETLB_PAGE_DTOR 标志表示 hugetlbfs 页面。Makedumpfile 不包括这些页面。
 
 ## x86_64
 x86_64
+
+### phys_base
+
+Used to convert the virtual address of an exported kernel symbol to its corresponding physical address.\
+用于将导出的内核符号的虚拟地址转换为相应的物理地址。
+
+### init_top_pgt
+
+Used to walk through the whole page table and convert virtual addresses to physical addresses. The init_top_pgt is somewhat similar to swapper_pg_dir, but it is only used in x86_64.\
+用于浏览整个页面表并将虚拟地址转换为物理地址。该init_top_pgt与swapper_pg_dir有些类似，但仅用于x86_64。
+
+### pgtable_l5_enabled
+
+User-space tools need to know whether the crash kernel was in 5-level paging mode.\
+用户空间工具需要知道崩溃内核是否处于 5 级分页模式。
+
+### node_data
+
+This is a struct pglist_data array and stores all NUMA nodes information. Makedumpfile gets the pglist_data structure from it.\
+这是一个结构pglist_data并存储所有 NUMA 节点信息。Makedumpfile 从pglist_data获取结构。
+
+### (node_data, MAX_NUMNODES)
+
+The maximum number of nodes in system.\
+系统中的最大节点数。
+
+### KERNELOFFSET
+
+The kernel randomization offset. Used to compute the page offset. If KASLR is disabled, this value is zero.\
+内核随机偏移。用于计算页面偏移量。如果禁用 KASLR，则此值为零。
+
+### KERNEL_IMAGE_SIZE
+
+Currently unused by Makedumpfile. Used to compute the module virtual address by Crash.\
+当前未使用由 Makedumpfile。用于按崩溃计算模块虚拟地址。
+
+### sme_mask
+
+AMD-specific with SME support: it indicates the secure memory encryption mask. Makedumpfile tools need to know whether the crash kernel was encrypted. If SME is enabled in the first kernel, the crash kernel’s page table entries (pgd/pud/pmd/pte) contain the memory encryption mask. This is used to remove the SME mask and obtain the true physical address.\
+AMD 特定于 SME 支持：它指示安全内存加密掩码。Makedumpfile 工具需要知道崩溃内核是否加密。如果在第一个内核中启用了 SME，则崩溃内核的页面表条目（pgd/pud/pmd/pte）包含内存加密掩码。这用于删除 SME 掩码并获取真正的物理地址。
+
+Currently, sme_mask stores the value of the C-bit position. If needed, additional SME-relevant info can be placed in that variable.\
+目前，sme_mask存储 C 位位置的值。如果需要，可以在该变量中放置其他 SME 相关信息。
+
+For example:\
+例如：
+
+    [ misc                ][ enc bit  ][ other misc SME info       ]
+    0000_0000_0000_0000_1000_0000_0000_0000_0000_0000_..._0000
+    63   59   55   51   47   43   39   35   31   27   ... 3
+
