@@ -382,6 +382,13 @@ Indicates the size offset of the memory region addressed by TTBR1_EL1. The regio
 TTBR1_EL1 is the table base address register specified by ARMv8-A architecture which is used to lookup the page-tables for the Virtual addresses in the higher VA range (refer to ARMv8 ARM document for more details).\
 TTBR1_EL1 是 ARMv8-A 体系结构指定的表基地址寄存器，用于查找较高 VA 范围内虚拟地址的页面表（有关更多详细信息，请参阅 ARMv8 ARM 文档）。
 
+## arm
+
+### ARM_LPAE
+
+It indicates whether the crash kernel supports large physical address extensions. Used to translate virtual to physical addresses.\
+它指示崩溃内核是否支持大型物理地址扩展。用于将虚拟地址转换为物理地址。
+
 
 
 
