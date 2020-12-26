@@ -180,7 +180,50 @@ Offsets for the various components of the printk ringbuffer. Used by user-space 
 The size of the prb_desc_ring structure. This structure contains information about the set of record descriptors.\
 prb_desc_ring 结构大小。此结构包含有关记录描述符集的信息。
 
+### (prb_desc_ring, count_bits|descs|head_id|tail_id)
 
+Offsets for the fields describing the set of record descriptors. Used by user-space tools to be able to traverse the descriptors without requiring the declaration of the structure.\
+描述记录描述符集字段的偏移量。用户空间工具用以遍历描述符，而无需声明此结构。
+
+### prb_desc
+
+The size of the prb_desc structure. This structure contains information about a single record descriptor.\
+prb_desc 结构大小。此结构包含有关记录描述符的信息。
+
+### (prb_desc, info|state_var|text_blk_lpos|dict_blk_lpos)
+
+Offsets for the fields describing a record descriptors. Used by user-space tools to be able to read descriptors without requiring the declaration of the structure.\
+描述记录描述符字段的偏移量。用户空间工具用以读取描述符，而无需声明此结构。
+
+### prb_data_blk_lpos
+
+The size of the prb_data_blk_lpos structure. This structure contains information about where the text or dictionary data (data block) is located within the respective data ring.\
+prb_data_blk_lpos 结构大小。此结构包含有关文本或字典数据（数据块）在相应数据环形缓冲区中位置的信息。
+
+### (prb_data_blk_lpos, begin|next)
+
+Offsets for the fields describing the location of a data block. Used by user-space tools to be able to locate data blocks without requiring the declaration of the structure.\
+描述数据块位置字段的偏移量。用户空间工具用以定位数据块，而无需声明此结构。
+
+### printk_info
+
+The size of the printk_info structure. This structure contains all the meta-data for a record.\
+printk_info 结构大小。此结构包含记录的所有元数据。
+
+### (printk_info, seq|ts_nsec|text_len|dict_len|caller_id)
+
+Offsets for the fields providing the meta-data for a record. Used by user-space tools to be able to read the information without requiring the declaration of the structure.\
+为记录提供元数据字段的偏移量。用户空间工具用以读取信息，而无需声明此结构。
+
+### prb_data_ring
+
+The size of the prb_data_ring structure. This structure contains information about a set of data blocks.\
+prb_data_ring 结构大小。此结构包含有关一组数据块的信息。
+
+### (prb_data_ring, size_bits|data|head_lpos|tail_lpos)
+
+Offsets for the fields describing a set of data blocks. Used by user-space tools to be able to access the data blocks without requiring the declaration of the structure.\
+描述一组数据块字段的偏移量。用户空间工具用以访问数据块，而无需声明此结构。
 
 
 ## x86_64
