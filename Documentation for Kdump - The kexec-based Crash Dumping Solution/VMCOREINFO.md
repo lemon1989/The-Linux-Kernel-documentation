@@ -326,12 +326,12 @@ Denotes whether physical address extensions are enabled. It has the cost of a hi
 ### pgdat_list|(pgdat_list, MAX_NUMNODES)
 
 pg_data_t array storing all NUMA nodes information. MAX_NUMNODES indicates the number of the nodes.\
-pg_data_t存储所有 NUMA 节点信息的阵列。MAX_NUMNODES指示节点数。
+pg_data_t 数组存储所有 NUMA 节点信息。MAX_NUMNODES 指示节点数。
 
 ### node_memblk|(node_memblk, NR_NODE_MEMBLKS)
 
 List of node memory chunks. Filled when parsing the SRAT table to obtain information about memory nodes. NR_NODE_MEMBLKS indicates the number of node memory chunks.\
-节点内存块的列表。分析 SRAT 表以获取有关内存节点的信息时填充。NR_NODE_MEMBLKS指示节点内存块的数量。
+节点内存块的列表。分析 SRAT 表以获取有关内存节点的信息时填充。NR_NODE_MEMBLKS 指示节点内存块的数量。
 
 These values are used to compute the number of nodes the crashed kernel used.\
 这些值用于计算崩溃内核使用的节点数。
@@ -339,11 +339,12 @@ These values are used to compute the number of nodes the crashed kernel used.\
 ### node_memblk_s|(node_memblk_s, start_paddr)|(node_memblk_s, size)
 
 The size of a struct node_memblk_s and the offsets of the node_memblk_s’s members. Used to compute the number of nodes.\
-结构的大小node_memblk_s和结构node_memblk_s的偏移。用于计算节点数。
+node_memblk_s 结构的大小和 node_memblk_s 结构的偏移。用于计算节点数。
 
 ### PGTABLE_3|PGTABLE_4
 
 User-space tools need to know whether the crash kernel was in 3-level or 4-level paging mode. Used to distinguish the page table.\
 用户空间工具需要知道崩溃内核是处于 3 级还是 4 级分页模式。用于区分页表。
+
 
 
