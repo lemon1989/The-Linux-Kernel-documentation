@@ -85,10 +85,10 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
     隐藏/显示其他 Kconfig 选项（但不生成其自身任何代码）的配置开关 Kconfig 选项应为"默认 y"，以便用户看到其他选项。
     
     c.Sub-driver behavior or similar options for a driver that is “default n”. This allows you to provide sane defaults.\
-    子驱动程序的行为或类似选项，应默认配置为 "默认 n"。这允许你提供优先默认值。
+    子驱动程序的行为或类似选项，应配置为 "默认 n"。这允许你提供优先默认值。
 
     d.Hardware or infrastructure that everybody expects, such as CONFIG_NET or CONFIG_BLOCK. These are rare exceptions.\
-    每个人都期望的硬件或基础架构，例如 CONFIG_NET 或 CONFIG_BLOCK。这些都是罕见的例外。
+    每个人都期望的硬件或基础架构，例如 CONFIG_NET 或 CONFIG_BLOCK。这些都是明显的实例。
 
     
 
