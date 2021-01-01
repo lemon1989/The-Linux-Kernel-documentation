@@ -67,10 +67,10 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 默认值："默认"<expr>"如果"<expr>]
     
   A config option can have any number of default values. If multiple default values are visible, only the first defined one is active. Default values are not   limited to the menu entry where they are defined. This means the default can be defined somewhere else or be overridden by an earlier definition. The default value is only assigned to the config symbol if no other value was set by the user (via the input prompt above). If an input prompt is visible the default value is presented to the user and can be overridden by him. Optionally, dependencies only for this default value can be added with “if”.\
-  配置选项可以具有任何数量的默认值。如果多个默认值可见，则只有第一个定义的默认值处于活动状态。默认值不限于定义默认值的菜单项。这意味着默认值可以在其他位置定义，或者由较早的定义覆盖。如果用户未设置其他值（通过上面的输入提示），默认值才分配给配置符号。如果输入提示可见，则默认值将呈现给用户，并可由用户覆盖。可选地，只能为此默认值添加依赖项，并添加"if"。
+  配置选项可以具有多个数量的默认值。如果多个默认值可见，则只有第一个定义的默认值处于活动状态。默认值不限于定义默认值的菜单项。这意味着默认值可以在其他位置定义，或者由较早的定义覆盖。如果用户未设置其他值（通过上面的输入提示），默认值才分配给配置符号。如果输入提示可见，则默认值将呈现给用户，并可由用户覆盖。可选地，只能为此默认值添加依赖项，并添加"if"。
 
   The default value deliberately defaults to ‘n’ in order to avoid bloating the build. With few exceptions, new config options should not change this. The intent is for “make oldconfig” to add as little as possible to the config from release to release.\
-  默认值有意地默认为"n"，以避免膨胀编译。除了少数例外，新的配置选项不应更改此选项。目的是"make oldconfig"尽可能少地添加配置从发布到发布。
+  默认值有意地默认为"n"，以避免过多编译。除了少数例外，新的配置选项不应更改此选项。目的是"make oldconfig"尽可能少地添加配置从发布到发布。
 
   Note:\
   注意：
