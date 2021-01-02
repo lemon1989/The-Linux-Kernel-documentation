@@ -57,7 +57,7 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
     bool
     prompt "Networking support"
 
-- input prompt: “prompt” <prompt> [“if” <expr>]\
+- input prompt: “prompt” \<prompt\> [“if” \<expr\>]\
 输入提示："prompt"<prompt>"if"<expr>]
     
   Every menu entry can have at most one prompt, which is used to display to the user. Optionally dependencies only for this prompt can be added with “if”.\
