@@ -45,7 +45,6 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
 菜单项可以具有多个属性。并非所有属性都适用于所有地方（请参阅语法）。
 
 - type definition: “bool”/”tristate”/”string”/”hex”/”int”\
-类型定义："布尔"/"三态"/"字符串"/"十六进制"/"整型"
 
   Every config option must have a type. There are only two basic types: tristate and string; the other types are based on these two. The type definition optionally accepts an input prompt, so these two examples are equivalent:\
   每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选泽地接受输入提示，因此这两个示例等效：
@@ -71,7 +70,6 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
   默认值有意地默认为"n"，以避免过多编译。除了少数例外，新的配置选项不应更改此选项。目的是"make oldconfig"尽可能少地添加配置从发布到发布。
 
   Note:\
-  注意：
 
     Things that merit “default y/m” include:\
     优先配置 "默认值 y/m"，包括以下情况：
