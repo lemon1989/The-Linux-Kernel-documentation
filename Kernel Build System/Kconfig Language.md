@@ -58,13 +58,11 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
     prompt "Networking support"
 
 - input prompt: “prompt” \<prompt\> [“if” \<expr\>]\
-输入提示："prompt"<prompt>"if"<expr>]
     
   Every menu entry can have at most one prompt, which is used to display to the user. Optionally dependencies only for this prompt can be added with “if”.\
   每个菜单项最多只能有一个提示，用于向用户显示。添加"if"可选择地为此提示添加依赖项。
 
 - default value: “default” \<expr\> [“if” \<expr\>]\
-默认值："默认"<expr>"如果"<expr>]
     
   A config option can have any number of default values. If multiple default values are visible, only the first defined one is active. Default values are not   limited to the menu entry where they are defined. This means the default can be defined somewhere else or be overridden by an earlier definition. The default value is only assigned to the config symbol if no other value was set by the user (via the input prompt above). If an input prompt is visible the default value is presented to the user and can be overridden by him. Optionally, dependencies only for this default value can be added with “if”.\
   配置选项可以具有多个数量的默认值。如果多个默认值可见，则只有第一个定义的默认值处于活动状态。默认值不限于定义默认值的菜单项。这意味着默认值可以在其他位置定义，或者由较早的定义覆盖。如果用户未设置其他值（通过上面的输入提示），默认值才分配给配置符号。如果输入提示可见，则默认值将呈现给用户，并可由用户覆盖。可选地，只能为此默认值添加 "if" 依赖项。
