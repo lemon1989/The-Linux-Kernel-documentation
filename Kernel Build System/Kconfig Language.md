@@ -44,7 +44,7 @@ Every line starts with a key word and can be followed by multiple arguments. “
 A menu entry can have a number of attributes. Not all of them are applicable everywhere (see syntax).\
 菜单项可以具有多个属性。并非所有属性都适用于所有地方（请参阅语法）。
 
-- type definition: “bool”/”tristate”/”string”/”hex”/”int”\
+- type definition: “bool”/”tristate”/”string”/”hex”/”int”
 
   Every config option must have a type. There are only two basic types: tristate and string; the other types are based on these two. The type definition optionally accepts an input prompt, so these two examples are equivalent:\
   每个配置选项都必须具有类型。只有两种基本类型：三态和字符串;其他类型基于这两种类型。类型定义可选泽地接受输入提示，因此这两个示例等效：
@@ -56,12 +56,12 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
     bool
     prompt "Networking support"
 
-- input prompt: “prompt” \<prompt\> [“if” \<expr\>]\
+- input prompt: “prompt” \<prompt\> [“if” \<expr\>]
     
   Every menu entry can have at most one prompt, which is used to display to the user. Optionally dependencies only for this prompt can be added with “if”.\
   每个菜单项最多只能有一个提示，用于向用户显示。添加"if"可选择地为此提示添加依赖项。
 
-- default value: “default” \<expr\> [“if” \<expr\>]\
+- default value: “default” \<expr\> [“if” \<expr\>]
     
   A config option can have any number of default values. If multiple default values are visible, only the first defined one is active. Default values are not   limited to the menu entry where they are defined. This means the default can be defined somewhere else or be overridden by an earlier definition. The default value is only assigned to the config symbol if no other value was set by the user (via the input prompt above). If an input prompt is visible the default value is presented to the user and can be overridden by him. Optionally, dependencies only for this default value can be added with “if”.\
   配置选项可以具有多个数量的默认值。如果多个默认值可见，则只有第一个定义的默认值处于活动状态。默认值不限于定义默认值的菜单项。这意味着默认值可以在其他位置定义，或者由较早的定义覆盖。如果用户未设置其他值（通过上面的输入提示），默认值才分配给配置符号。如果输入提示可见，则默认值将呈现给用户，并可由用户覆盖。可选地，只能为此默认值添加 "if" 依赖项。
@@ -69,7 +69,7 @@ A menu entry can have a number of attributes. Not all of them are applicable eve
   The default value deliberately defaults to ‘n’ in order to avoid bloating the build. With few exceptions, new config options should not change this. The intent is for “make oldconfig” to add as little as possible to the config from release to release.\
   默认值有意地默认为"n"，以避免过多编译。除了少数例外，新的配置选项不应更改此选项。目的是"make oldconfig"尽可能少地添加配置从发布到发布。
 
-  Note:\
+  Note:
 
     Things that merit “default y/m” include:\
     优先配置 "默认值 y/m"，包括以下情况：
